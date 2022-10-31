@@ -1,3 +1,3 @@
-# Mercado --computer--
+# Mercado :computer:
 
 Projeto Java
