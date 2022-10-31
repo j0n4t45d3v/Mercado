@@ -2,7 +2,7 @@ package repositorio;
 
 
 import cliente.Cliente;
-import exceptions.CpfException;
+
 
 public class RepositorioClienteLista implements InterfaceCliente{
     private Node<Cliente> inicio;
