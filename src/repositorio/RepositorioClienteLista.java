@@ -26,6 +26,26 @@ public class RepositorioClienteLista implements InterfaceCliente{
         this.fim = no;
     }
 
+    @Override
+    public void removerCliente(Cliente cliente) {
+        Node<Cliente> noAtual = this.inicio;
+
+        while(noAtual != null && noAtual.getValue() != cliente){
+            noAtual = noAtual.getProx();
+        }
+
+        if(this.inicio.equals(noAtual)){
+            this.inicio = noAtual.getProx();
+            this.inicio.setAnt(null);
+        }else if(this.fim.equals(noAtual)){
+            this.fim = noAtual.getAnt();
+            this.fim.setProx(null);
+        }else{
+            noAtual.getAnt().setProx(noAtual.getProx());
+            noAtual.getProx().setAnt(noAtual.getAnt());
+        }
+    }
+
     public void listaClientes(){
         Node<Cliente> noAtual = this.inicio;
 

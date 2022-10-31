@@ -5,5 +5,6 @@ import exceptions.CpfException;
 
 public interface InterfaceCliente {
 
-    public default void cadastrar(Cliente cliente) {}
+    default void cadastrar(Cliente cliente) {}
+    default void removerCliente(Cliente cliente) {}
 }
