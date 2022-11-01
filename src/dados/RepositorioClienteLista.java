@@ -1,7 +1,8 @@
-package repositorio;
+package dados;
 
 
 import cliente.Cliente;
+import exceptions.CpfException;
 
 
 public class RepositorioClienteLista implements InterfaceCliente{
@@ -15,15 +16,26 @@ public class RepositorioClienteLista implements InterfaceCliente{
 
 
     @Override
-    public void cadastrar(Cliente cliente) {
+    public void cadastrar(Cliente cliente) throws CpfException {
         Node<Cliente> no = new Node<>(cliente);
         if(this.inicio == null){
             this.inicio = no;
         }else{
+            Node<Cliente> noAtual = this.inicio;
+            boolean verificacao = false;
+
+            while(noAtual != null){
+                if(noAtual.getValue().getCpf().equals(cliente.getCpf())){
+                    verificacao = true;
+                }
+            }
+
             this.fim.setProx(no);
             no.setAnt(this.fim);
         }
         this.fim = no;
+
+        throw new CpfException("usuario já existe!");
     }
 
     @Override

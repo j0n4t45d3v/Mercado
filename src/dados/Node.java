@@ -1,4 +1,4 @@
-package repositorio;
+package dados;
 
 public class Node<T> {
     private T value;
