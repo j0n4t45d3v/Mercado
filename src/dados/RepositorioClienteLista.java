@@ -21,21 +21,10 @@ public class RepositorioClienteLista implements InterfaceCliente{
         if(this.inicio == null){
             this.inicio = no;
         }else{
-            Node<Cliente> noAtual = this.inicio;
-            boolean verificacao = false;
-
-            while(noAtual != null){
-                if(noAtual.getValue().getCpf().equals(cliente.getCpf())){
-                    verificacao = true;
-                }
-            }
-
             this.fim.setProx(no);
             no.setAnt(this.fim);
         }
         this.fim = no;
-
-        throw new CpfException("usuario já existe!");
     }
 
     @Override
