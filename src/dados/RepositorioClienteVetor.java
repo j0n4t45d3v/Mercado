@@ -1,27 +1,30 @@
 package dados;
 
 import cliente.Cliente;
+import exceptions.CpfException;
+
 import java.util.Arrays;
 
 
 public class RepositorioClienteVetor implements InterfaceCliente{
-    private int tamanho = 0;
-    private Cliente[] vetor = new Cliente[tamanho];;
+    private Cliente[] vetor;
 
     public RepositorioClienteVetor() {
 
     }
 
-
-//    Arrumar!
     @Override
-    public void cadastrar(Cliente cliente) {
+    public void add(RepositorioClienteLista clientes){
 
-        this.vetor[this.tamanho - 1] = cliente;
+        this.vetor = new Cliente[clientes.getTamanho()];
 
+        clientes.cloneArray(this.vetor);
     }
 
     public void imprimir(){
-        System.out.println(Arrays.toString(this.vetor));
+
+        for(Cliente i : this.vetor){
+            System.out.println(i.getNome());
+        }
     }
 }
