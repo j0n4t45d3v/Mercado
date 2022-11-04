@@ -14,7 +14,7 @@ public class RepositorioClienteVetor implements InterfaceCliente{
     }
 
     @Override
-    public void add(RepositorioClienteLista clientes){
+    public void addVetor(RepositorioClienteLista clientes){
 
         this.vetor = new Cliente[clientes.getTamanho()];
 

@@ -11,7 +11,7 @@ public class Funcionario extends Pessoa {
         super(nome, dataNascimento, cpf);
     }
 
-    public void cadastroCliente(){
+    public void cadastrarCliente() throws CpfException{
         /*Node<Cliente> noAtual = this.inicio;
         boolean verificacao = false;
         while(noAtual != null){
