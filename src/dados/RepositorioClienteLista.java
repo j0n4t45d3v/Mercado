@@ -20,7 +20,7 @@ public class RepositorioClienteLista implements InterfaceCliente{
     }
 
     @Override
-    public void addVetor(Cliente cliente){
+    public void add(Cliente cliente){
         Node<Cliente> no = new Node<>(cliente);
         if(this.inicio == null){
             this.inicio = no;
@@ -67,22 +67,6 @@ public class RepositorioClienteLista implements InterfaceCliente{
             cpfExite = true;
 
         return cpfExite;
-    }
-
-
-    public void cloneArray(Cliente[] vetorCliente){
-        Node<Cliente> noAtual = this.inicio;
-        int contador = 0;
-
-        while(noAtual != null){
-
-            vetorCliente[contador] = noAtual.getValue();
-
-            contador++;
-            noAtual = noAtual.getProx();
-        }
-
-
     }
 
     public void listaClientes(){
