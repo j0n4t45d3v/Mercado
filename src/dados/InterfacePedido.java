@@ -1,10 +1,10 @@
 package dados;
 
-import pedido.Itens;
+import pedido.Item;
 
 public interface InterfacePedido {
 
-    default void add(Itens item){}
+    default void add(Item item){}
     default void remover(String item){}
 
 }

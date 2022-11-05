@@ -1,11 +1,10 @@
 package dados;
 
-import cliente.Cliente;
-import pedido.Itens;
+import pedido.Item;
 
 public class RepositorioPedidoLista implements InterfacePedido{
-    private Node<Itens> inicio;
-    private Node<Itens> fim;
+    private Node<Item> inicio;
+    private Node<Item> fim;
     private int tamanho;
 
     public RepositorioPedidoLista() {
@@ -15,8 +14,8 @@ public class RepositorioPedidoLista implements InterfacePedido{
     }
 
     @Override
-    public void add(Itens item) {
-        Node<Itens> no = new Node<>(item);
+    public void add(Item item) {
+        Node<Item> no = new Node<>(item);
         if(this.inicio == null)
             this.inicio = no;
         else {
@@ -29,7 +28,7 @@ public class RepositorioPedidoLista implements InterfacePedido{
 
     @Override
     public void remover(String NomeItem) {
-        Node<Itens> noAtual = this.inicio;
+        Node<Item> noAtual = this.inicio;
         String nomeItem = noAtual.getValue().getNome();
 
         while(noAtual != null && nomeItem != NomeItem){
@@ -50,7 +49,7 @@ public class RepositorioPedidoLista implements InterfacePedido{
     }
 
     public void listaClientes(){
-        Node<Itens> noAtual = this.inicio;
+        Node<Item> noAtual = this.inicio;
 
         while(noAtual != null){
             System.out.println(noAtual.getValue().getNome());
