@@ -12,8 +12,10 @@ public class CadastroCliente {
 
     public void cadastrar(Cliente cliente) throws CpfException {
         if(cliente.getCpf().length() != 11){
-            throw new CpfException();
-        }else{
+            throw new CpfException("Cpf invalido!");
+        }else if(clientes.existeCliente(cliente.getCpf())){
+            throw new CpfException("Usuario já cadastrado!");
+        } else{
            clientes.add(cliente);
         }
     }
