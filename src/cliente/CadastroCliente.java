@@ -11,8 +11,10 @@ public class CadastroCliente {
     }
 
     public void cadastrar(Cliente cliente) throws CpfException {
-        if(true){
-
+        if(cliente.getCpf().length() != 11){
+            throw new CpfException();
+        }else{
+            clientes.add(cliente);
         }
     }
 
