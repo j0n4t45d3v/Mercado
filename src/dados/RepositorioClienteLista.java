@@ -53,6 +53,11 @@ public class RepositorioClienteLista implements InterfaceCliente{
         tamanho--;
     }
 
+    @Override
+    public void atualizar(Cliente cliente) {
+
+    }
+
     public boolean buscaCpf(String cpf){
         Node<Cliente> noAtual = this.inicio;
         String cpfNoAtual = noAtual.getValue().getCpf();

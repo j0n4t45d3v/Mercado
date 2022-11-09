@@ -4,9 +4,8 @@ import cliente.Cliente;
 
 public interface InterfaceCliente {
 
-    default void add(Cliente cliente){}
-    default void remover(Cliente cliente){}
-    default void add(RepositorioClienteLista clientes){
+    void add(Cliente cliente);
+    void remover(Cliente cliente);
+    void atualizar(Cliente cliente);
 
-    }
 }

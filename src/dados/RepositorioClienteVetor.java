@@ -14,7 +14,18 @@ public class RepositorioClienteVetor implements InterfaceCliente{
     }
 
     @Override
-    public void add(RepositorioClienteLista clientes){
+    public void add(Cliente cliente) {
+
+    }
+
+    @Override
+    public void remover(Cliente cliente) {
+
+    }
+
+    @Override
+    public void atualizar(Cliente cliente) {
+
     }
 
     public void imprimir(){
