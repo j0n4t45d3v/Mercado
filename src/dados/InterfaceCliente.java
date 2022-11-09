@@ -8,6 +8,6 @@ public interface InterfaceCliente {
     void remover(Cliente cliente);
     void atualizar(Cliente cliente, String cpf);
     boolean existeCliente(String cpf);
-    Cliente procuraCliente(String nome);
+    Cliente buscarCliente(String nome);
 
 }
