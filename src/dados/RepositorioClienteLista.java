@@ -54,8 +54,23 @@ public class RepositorioClienteLista implements InterfaceCliente{
     }
 
     @Override
-    public void atualizar(Cliente cliente) {
+    public void atualizar(Cliente cliente, String cpf){
+        Node<Cliente> noAtual = this.inicio;
+        while(noAtual != null && noAtual.getValue() != cliente) {
+            noAtual = noAtual.getProx();
+        }
 
+
+    }
+
+    @Override
+    public boolean existeCliente(String cpf) {
+        return false;
+    }
+
+    @Override
+    public Cliente procuraCliente(String nome) {
+        return null;
     }
 
     public boolean buscaCpf(String cpf){

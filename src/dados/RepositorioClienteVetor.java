@@ -24,7 +24,7 @@ public class RepositorioClienteVetor implements InterfaceCliente{
     }
 
     @Override
-    public void atualizar(Cliente cliente) {
+    public void atualizar(Cliente cliente , String cpf) {
 
     }
 
