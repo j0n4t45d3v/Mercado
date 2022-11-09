@@ -28,6 +28,16 @@ public class RepositorioClienteVetor implements InterfaceCliente{
 
     }
 
+    @Override
+    public boolean existeCliente(String cpf) {
+        return false;
+    }
+
+    @Override
+    public Cliente buscarCliente(String nome) {
+        return null;
+    }
+
     public void imprimir(){
 
         for(Cliente i : this.vetor){

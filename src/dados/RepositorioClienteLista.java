@@ -69,7 +69,7 @@ public class RepositorioClienteLista implements InterfaceCliente{
     }
 
     @Override
-    public Cliente procuraCliente(String nome) {
+    public Cliente buscarCliente(String nome) {
         return null;
     }
 
