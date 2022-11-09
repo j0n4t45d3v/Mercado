@@ -2,11 +2,11 @@ package produto;
 
 public class Produto {
     private String nome;
-    private int id;
+    private String id;
     private double preco;
     private int quantidade;
 
-    public Produto(String nome, int id, double preco, int quantidade) {
+    public Produto(String nome, String id, double preco, int quantidade) {
         this.nome = nome;
         this.id = id;
         this.preco = preco;
@@ -21,11 +21,11 @@ public class Produto {
         this.nome = nome;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
