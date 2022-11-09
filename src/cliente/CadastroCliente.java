@@ -6,9 +6,7 @@ import exceptions.CpfException;
 public class CadastroCliente {
     private InterfaceCliente clientes;
 
-    public CadastroCliente(InterfaceCliente clientes) {
-        this.clientes = clientes;
-    }
+    public CadastroCliente() {}
 
     public void cadastrar(Cliente cliente) throws CpfException {
         if(cliente.getCpf().length() != 11){

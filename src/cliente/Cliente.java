@@ -1,22 +1,34 @@
 package cliente;
 
 import dados.RepositorioPedidoLista;
+import pedido.Item;
 import pessoa.Pessoa;
 
 public class Cliente extends Pessoa {
-    private RepositorioPedidoLista rpl;
+
+    private Item[] pedidos;
     private String formaDePagamento;
+    private int tamanho;
 
-    public Cliente(String nome, String dataNascimento, String cpf) {
+    public Cliente(String nome, String dataNascimento, String cpf, int tamanho) {
         super(nome, dataNascimento, cpf);
+        this.tamanho = tamanho;
     }
 
-    public RepositorioPedidoLista getRpl() {
-        return rpl;
+    public void adicionarProduto(){
+        
     }
 
-    public void setRpl(RepositorioPedidoLista rpl) {
-        this.rpl = rpl;
+    public void setPedidos(Item[] pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
     }
 
     public String getFormaDePagamento() {
