@@ -9,13 +9,24 @@ import java.util.Arrays;
 public class RepositorioClienteVetor implements InterfaceCliente{
     private Cliente[] vetor;
 
-    public RepositorioClienteVetor() {
+    private int indice;
 
+    public RepositorioClienteVetor(int t) {
+        this.indice = 0;
+        this.vetor = new Cliente[t];
     }
 
     @Override
     public void add(Cliente cliente) {
-
+        if (this.vetor.length == indice){
+            Cliente[] aux = new Cliente[indice * 2];
+            for (int i = 0 ; i < indice ; i++){
+                aux[i] = this.vetor[i];
+            }
+            this.vetor = aux;
+        }
+        this.vetor[indice] = cliente;
+        indice++;
     }
 
     @Override
@@ -40,8 +51,27 @@ public class RepositorioClienteVetor implements InterfaceCliente{
 
     public void imprimir(){
 
-        for(Cliente i : this.vetor){
-            System.out.println(i.getNome());
+        for (int i = 0; i < this.vetor.length; i++){
+            System.out.println(this.vetor[i].getNome());
+            if (this.vetor[i+1] == null){
+                break;
+            }
         }
+    }
+
+    public Cliente[] getVetor() {
+        return vetor;
+    }
+
+    public void setVetor(Cliente[] vetor) {
+        this.vetor = vetor;
+    }
+
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
     }
 }
