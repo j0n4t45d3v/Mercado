@@ -2,6 +2,7 @@ package dados;
 
 
 import cliente.Cliente;
+import exceptions.CpfException;
 
 
 public class RepositorioClienteLista implements InterfaceCliente{
@@ -65,7 +66,11 @@ public class RepositorioClienteLista implements InterfaceCliente{
 
     @Override
     public boolean existeCliente(String cpf) {
-        return false;
+        Node<Cliente> p = this.inicio;
+        while (p != null && !p.getValue().getCpf().equals(cpf) ){
+            p = p.getProx();
+        }
+        return p != null;
     }
 
     @Override
@@ -78,7 +83,7 @@ public class RepositorioClienteLista implements InterfaceCliente{
         String cpfNoAtual = noAtual.getValue().getCpf();
         boolean cpfExite = false;
 
-        while(noAtual != null && cpfNoAtual != cpf){
+        while(noAtual != null && !cpfNoAtual.equals(cpf)){
 
             noAtual = noAtual.getProx();
         }

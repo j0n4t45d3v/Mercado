@@ -18,7 +18,7 @@ public class Funcionario extends Pessoa {
         if(rcl.buscaCpf(cliente.getCpf())){
             rcl.add(cliente);
         }else{
-            throw new CpfException();
+            throw new CpfException("qualquer coisa");
         }
     }
 }
