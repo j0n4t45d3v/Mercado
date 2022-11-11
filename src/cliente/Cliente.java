@@ -1,8 +1,8 @@
 package cliente;
 
-import dados.RepositorioPedidoLista;
 import pedido.Item;
 import pessoa.Pessoa;
+import produto.Produto;
 
 public class Cliente extends Pessoa {
 
@@ -13,11 +13,10 @@ public class Cliente extends Pessoa {
     public Cliente(String nome, String dataNascimento, String cpf, int tamanho) {
         super(nome, dataNascimento, cpf);
         this.tamanho = tamanho;
+        this.pedidos = new Item[tamanho];
     }
 
-    public void adicionarProduto(){
-        
-    }
+
 
     public void setPedidos(Item[] pedidos) {
         this.pedidos = pedidos;

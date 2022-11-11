@@ -2,12 +2,12 @@ package dados;
 
 import pedido.Item;
 
-public class RepositorioPedidoLista implements InterfacePedido{
+public class RepositorioProdutoLista implements InterfaceProduto {
     private Node<Item> inicio;
     private Node<Item> fim;
     private int tamanho;
 
-    public RepositorioPedidoLista() {
+    public RepositorioProdutoLista() {
         this.inicio = null;
         this.fim = null;
         this.tamanho = 0;

@@ -1,20 +1,22 @@
 package pedido;
 
+import produto.Produto;
+
 public class Item {
-    private String nome;
+    private Produto produto;
     private int quantidade;
 
-    public Item(String nome, int quantidade) {
-        this.nome = nome;
+    public Item(Produto produto, int quantidade) {
+        this.produto = produto;
         this.quantidade = quantidade;
     }
 
-    public String getNome() {
-        return nome;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     public int getQuantidade() {
