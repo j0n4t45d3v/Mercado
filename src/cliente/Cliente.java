@@ -8,26 +8,42 @@ public class Cliente extends Pessoa {
 
     private Item[] pedidos;
     private String formaDePagamento;
-    private int tamanho;
+    private int indice;
 
-    public Cliente(String nome, String dataNascimento, String cpf, int tamanho) {
+    public Cliente(String nome, String dataNascimento, String cpf) {
         super(nome, dataNascimento, cpf);
-        this.tamanho = tamanho;
-        this.pedidos = new Item[tamanho];
+        this.indice = 0;
+        this.pedidos = new Item[10];
     }
 
-
+//    passivel de auteração!
+    public void adicionarProdutoNoCarrinho(Produto produto, int qtd){
+        Item item = new Item(produto, qtd);
+        if(indice == pedidos.length){
+            Item[] auxiliar = new Item[pedidos.length * 2];
+            for(int i = 0; i < pedidos.length; i++){
+                auxiliar[i] = pedidos[i];
+            }
+            pedidos = auxiliar;
+        }
+        pedidos[indice] = item;
+        indice++;
+    }
 
     public void setPedidos(Item[] pedidos) {
         this.pedidos = pedidos;
     }
 
-    public int getTamanho() {
-        return tamanho;
+    public Item[] getPedidos() {
+        return pedidos;
     }
 
-    public void setTamanho(int tamanho) {
-        this.tamanho = tamanho;
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
     }
 
     public String getFormaDePagamento() {
