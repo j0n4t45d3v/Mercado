@@ -1,10 +1,12 @@
 package dados;
 
+import cliente.Cliente;
 import pedido.Item;
+import produto.Produto;
 
 public class RepositorioProdutoLista implements InterfaceProduto {
-    private Node<Item> inicio;
-    private Node<Item> fim;
+    private Node<Produto> inicio;
+    private Node<Produto> fim;
     private int tamanho;
 
     public RepositorioProdutoLista() {
@@ -14,8 +16,8 @@ public class RepositorioProdutoLista implements InterfaceProduto {
     }
 
     @Override
-    public void add(Item item) {
-        Node<Item> no = new Node<>(item);
+    public void add(Produto produto) {
+        Node<Produto> no = new Node<>(produto);
         if(this.inicio == null)
             this.inicio = no;
         else {
@@ -27,11 +29,11 @@ public class RepositorioProdutoLista implements InterfaceProduto {
     }
 
     @Override
-    public void remover(String NomeItem) {
-        Node<Item> noAtual = this.inicio;
+    public void remover(String nomeProduto) {
+        Node<Produto> noAtual = this.inicio;
         String nomeItem = noAtual.getValue().getNome();
 
-        while(noAtual != null && nomeItem != NomeItem){
+        while(noAtual != null && nomeItem != nomeProduto){
             noAtual = noAtual.getProx();
         }
 
@@ -48,8 +50,24 @@ public class RepositorioProdutoLista implements InterfaceProduto {
         this.tamanho--;
     }
 
+    @Override
+    public void atualizar(Produto produto, String id) {
+
+    }
+
+
+    @Override
+    public boolean existeProduto(String id) {
+        return false;
+    }
+
+    @Override
+    public Cliente buscarProduto(String nomeProduto) {
+        return null;
+    }
+
     public void listaClientes(){
-        Node<Item> noAtual = this.inicio;
+        Node<Produto> noAtual = this.inicio;
 
         while(noAtual != null){
             System.out.println(noAtual.getValue().getNome());

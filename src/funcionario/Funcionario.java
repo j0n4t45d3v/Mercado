@@ -1,7 +1,6 @@
 package funcionario;
 
 import cliente.Cliente;
-import dados.Node;
 import dados.RepositorioClienteLista;
 import exceptions.CpfException;
 import pessoa.Pessoa;
