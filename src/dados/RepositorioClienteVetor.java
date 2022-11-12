@@ -4,6 +4,8 @@ import cliente.Cliente;
 import exceptions.CpfException;
 
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.Vector;
 
 
 public class RepositorioClienteVetor implements InterfaceCliente{
@@ -31,16 +33,30 @@ public class RepositorioClienteVetor implements InterfaceCliente{
 
     @Override
     public void remover(Cliente cliente) {
-
+        for(int i = 0 ; i < this.vetor.length; i++){
+            if (this.vetor[i].getCpf().equals(cliente.getCpf())){
+                this.vetor[i] = null;
+                break;
+            }
+        }
     }
 
     @Override
-    public void atualizar(Cliente cliente , String cpf) {
+    public void atualizar(Cliente cliente,String cpf) {
+        for (int i = 0 ; i <this.vetor.length ; i++){
+            if (this.vetor[i] != null){
+                String id = this.vetor[i].getCpf();
+                if (cpf.equals(id) ){
+                    this.vetor[i] = cliente;
+                }
+            }
+        }
 
     }
 
     @Override
     public boolean existeCliente(String cpf) {
+
         return false;
     }
 
@@ -51,11 +67,12 @@ public class RepositorioClienteVetor implements InterfaceCliente{
 
     public void imprimir(){
 
-        for (int i = 0; i < this.vetor.length; i++){
-            System.out.println(this.vetor[i].getNome());
-            if (this.vetor[i+1] == null){
-                break;
+        for (Cliente cliente : this.vetor) {
+            if (cliente != null) {
+                System.out.println(cliente.getNome());
             }
+
+
         }
     }
 
