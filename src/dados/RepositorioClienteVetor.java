@@ -71,8 +71,18 @@ public class RepositorioClienteVetor implements InterfaceCliente{
     }
 
     @Override
-    public Cliente buscarCliente(String nome) {
-        return null;
+    public Cliente buscarCliente(String cpf) {
+        Cliente clienteEncontrado = null;
+        for (Cliente cliente : this.vetor) {
+            if (cliente != null) {
+                String id = cliente.getCpf();
+                if (cpf.equals(id)) {
+                    clienteEncontrado = cliente;
+                    break;
+                }
+            }
+        }
+        return clienteEncontrado;
     }
 
     public void imprimir(){

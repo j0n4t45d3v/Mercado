@@ -74,7 +74,7 @@ public class RepositorioClienteLista implements InterfaceCliente{
     }
 
     @Override
-    public Cliente buscarCliente(String nome) {
+    public Cliente buscarCliente(String cpf) {
         return null;
     }
 
