@@ -1,16 +1,9 @@
 package dados;
 
 import cliente.Cliente;
-import exceptions.CpfException;
-
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Vector;
-
 
 public class RepositorioClienteVetor implements InterfaceCliente{
     private Cliente[] vetor;
-
     private int indice;
 
     public RepositorioClienteVetor(int t) {
@@ -51,7 +44,6 @@ public class RepositorioClienteVetor implements InterfaceCliente{
                 }
             }
         }
-
     }
 
     @Override
@@ -66,7 +58,6 @@ public class RepositorioClienteVetor implements InterfaceCliente{
                 }
             }
         }
-
         return retorno;
     }
 
@@ -91,24 +82,6 @@ public class RepositorioClienteVetor implements InterfaceCliente{
             if (cliente != null) {
                 System.out.println(cliente.getNome());
             }
-
-
         }
-    }
-
-    public Cliente[] getVetor() {
-        return vetor;
-    }
-
-    public void setVetor(Cliente[] vetor) {
-        this.vetor = vetor;
-    }
-
-    public int getIndice() {
-        return indice;
-    }
-
-    public void setIndice(int indice) {
-        this.indice = indice;
     }
 }

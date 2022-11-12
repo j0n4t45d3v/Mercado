@@ -20,4 +20,13 @@ public class CadastroCliente {
         }
     }
 
+    public void buscarCliente(String cpfCliente){
+        String msg = "Cliente não encontrado!";
+        if(clientes.existeCliente(cpfCliente)){
+            Cliente cliente = clientes.buscarCliente(cpfCliente);
+            msg = cliente.getNome()+" | Cpf: "+cliente.getCpf();
+        }
+        System.out.println(msg);
+    }
+
 }

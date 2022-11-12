@@ -13,8 +13,8 @@ public class Funcionario extends Pessoa {
     }
 
     public void cadastrarCliente(Cliente cliente) throws CpfException{
-
-        if(rcl.buscaCpf(cliente.getCpf())){
+        String cpfCliente = cliente.getCpf();
+        if(rcl.buscarCliente(cpfCliente)){
             rcl.add(cliente);
         }else{
             throw new CpfException("qualquer coisa");
