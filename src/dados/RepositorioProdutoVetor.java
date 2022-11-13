@@ -1,6 +1,5 @@
 package dados;
 
-import cliente.Cliente;
 import produto.Produto;
 
 public class RepositorioProdutoVetor implements InterfaceProduto {
@@ -26,7 +25,7 @@ public class RepositorioProdutoVetor implements InterfaceProduto {
     }
 
     @Override
-    public Cliente buscarProduto(String nomeProduto) {
+    public Produto buscarProduto(String codigoDeBarra) {
         return null;
     }
 }

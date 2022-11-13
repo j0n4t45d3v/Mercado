@@ -1,7 +1,5 @@
 package dados;
 
-import cliente.Cliente;
-import pedido.Item;
 import produto.Produto;
 
 public class RepositorioProdutoLista implements InterfaceProduto {
@@ -62,7 +60,7 @@ public class RepositorioProdutoLista implements InterfaceProduto {
     }
 
     @Override
-    public Cliente buscarProduto(String nomeProduto) {
+    public Produto buscarProduto(String codigoDeBarra) {
         return null;
     }
 
