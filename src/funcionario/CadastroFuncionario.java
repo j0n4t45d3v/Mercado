@@ -1,5 +1,6 @@
 package funcionario;
 
+import cliente.Cliente;
 import dados.InterfaceFuncionario;
 import exceptions.CpfException;
 
@@ -19,5 +20,14 @@ public class CadastroFuncionario {
         }else{
             funcionarios.add(funcionario);
         }
+    }
+
+    public void buscarFuncionario(String cpfFuncionario){
+        String msg = "Cliente não encontrado!";
+        if(funcionarios.existeFuncionario(cpfFuncionario)){
+            Funcionario funcionario = funcionarios.buscarFuncionario(cpfFuncionario);
+            msg = funcionario.getNome()+" | Cpf: "+funcionario.getCpf();
+        }
+        System.out.println(msg);
     }
 }
