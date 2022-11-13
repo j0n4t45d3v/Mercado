@@ -12,12 +12,12 @@ public class Funcionario extends Pessoa {
         super(nome, dataNascimento, cpf);
     }
 
-    public void cadastrarCliente(Cliente cliente) throws CpfException{
+    /*public void cadastrarCliente(Cliente cliente) throws CpfException{
         String cpfCliente = cliente.getCpf();
         if(rcl.buscarCliente(cpfCliente)){
             rcl.add(cliente);
         }else{
             throw new CpfException("qualquer coisa");
         }
-    }
+    }*/
 }
