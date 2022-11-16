@@ -29,7 +29,6 @@ public class Main {
             }
         } while(perg != 0);
     }
-
     public static void funcionario(){
 
         int perg;
@@ -45,4 +44,20 @@ public class Main {
             }
         }while(perg!=0);
     }
+    public static void cliente(){
+
+        int perg;
+        do {
+            System.out.println("Sair-0\nExcluir Cadastro-1\nAtualizar Cadastro-2\nAdicionar Produto-3 \nRemover Produto-4");
+            perg = input.nextInt();
+
+            switch (perg){
+                case 1 ->{
+
+                }
+            }
+
+        }while (perg !=0);
+    }
+
 }
