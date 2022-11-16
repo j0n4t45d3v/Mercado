@@ -1,6 +1,6 @@
-package pedido;
+package entidade.pedido;
 
-import produto.Produto;
+import entidade.produto.Produto;
 
 public class Pedido {
     private Item[] pedidos;
@@ -13,6 +13,7 @@ public class Pedido {
 
     public void adicionarProdutoNoCarrinho(Produto produto, int qtd){
         Item item = new Item(produto, qtd);
+
         if(indice == pedidos.length){
             Item[] auxiliar = new Item[pedidos.length * 2];
             for(int i = 0; i < pedidos.length; i++){

@@ -1,6 +1,6 @@
-package dados;
+package entidade.dados;
 
-import cliente.Cliente;
+import entidade.cliente.Cliente;
 
 
 public interface InterfaceCliente {

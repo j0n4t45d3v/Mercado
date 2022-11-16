@@ -1,4 +1,4 @@
-package produto;
+package entidade.produto;
 
 public class Produto {
     private String nome;

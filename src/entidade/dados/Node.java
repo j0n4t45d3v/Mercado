@@ -1,4 +1,4 @@
-package dados;
+package entidade.dados;
 
 public class Node<T> {
     private T value;

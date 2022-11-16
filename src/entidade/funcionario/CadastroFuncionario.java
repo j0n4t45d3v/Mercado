@@ -1,8 +1,7 @@
-package funcionario;
+package entidade.funcionario;
 
-import cliente.Cliente;
-import dados.InterfaceFuncionario;
-import exceptions.CpfException;
+import entidade.dados.InterfaceFuncionario;
+import entidade.exceptions.CpfException;
 
 public class CadastroFuncionario {
     private InterfaceFuncionario funcionarios;

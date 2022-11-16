@@ -1,7 +1,8 @@
-package cliente;
+package entidade.cliente;
 
-import pedido.Pedido;
-import pessoa.Pessoa;
+import entidade.pedido.Pedido;
+import entidade.pessoa.Pessoa;
+import entidade.produto.Produto;
 
 public class Cliente extends Pessoa {
     private Pedido pedido;
@@ -11,6 +12,11 @@ public class Cliente extends Pessoa {
     public Cliente(String nome, String dataNascimento, String cpf) {
         super(nome, dataNascimento, cpf);
         this.pedido = new Pedido();
+    }
+
+    public void adicionar(Produto produto, int qtd){
+        getPedido().adicionarProdutoNoCarrinho(produto, qtd);
+        produto.setQuantidade(produto.getQuantidade() - qtd);
     }
 
     public Pedido getPedido() {

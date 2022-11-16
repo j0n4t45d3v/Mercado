@@ -1,7 +1,7 @@
-package cliente;
+package entidade.cliente;
 
-import dados.InterfaceCliente;
-import exceptions.CpfException;
+import entidade.dados.InterfaceCliente;
+import entidade.exceptions.CpfException;
 
 public class CadastroCliente {
     private InterfaceCliente clientes;

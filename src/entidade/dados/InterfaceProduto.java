@@ -1,6 +1,6 @@
-package dados;
+package entidade.dados;
 
-import produto.Produto;
+import entidade.produto.Produto;
 
 public interface InterfaceProduto {
 

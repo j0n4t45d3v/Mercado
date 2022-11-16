@@ -1,6 +1,6 @@
-package pedido;
+package entidade.pedido;
 
-import produto.Produto;
+import entidade.produto.Produto;
 
 public class Item {
     private Produto produto;

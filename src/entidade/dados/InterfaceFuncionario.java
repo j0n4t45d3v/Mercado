@@ -1,6 +1,6 @@
-package dados;
+package entidade.dados;
 
-import funcionario.Funcionario;
+import entidade.funcionario.Funcionario;
 
 public interface InterfaceFuncionario {
     void add(Funcionario funcionario);

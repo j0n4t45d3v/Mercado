@@ -1,7 +1,7 @@
-package dados;
+package entidade.dados;
 
 
-import cliente.Cliente;
+import entidade.cliente.Cliente;
 
 public class RepositorioClienteLista implements InterfaceCliente{
     private Node<Cliente> inicio;

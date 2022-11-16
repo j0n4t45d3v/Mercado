@@ -1,9 +1,7 @@
-package funcionario;
+package entidade.funcionario;
 
-import cliente.Cliente;
-import dados.RepositorioClienteLista;
-import exceptions.CpfException;
-import pessoa.Pessoa;
+import entidade.dados.RepositorioClienteLista;
+import entidade.pessoa.Pessoa;
 
 public class Funcionario extends Pessoa {
     private RepositorioClienteLista rcl = new RepositorioClienteLista();
@@ -12,10 +10,10 @@ public class Funcionario extends Pessoa {
         super(nome, dataNascimento, cpf);
     }
 
-    /*public void cadastrarCliente(Cliente cliente) throws CpfException{
-        String cpfCliente = cliente.getCpf();
+    /*public void cadastrarCliente(Cliente entidade.cliente) throws CpfException{
+        String cpfCliente = entidade.cliente.getCpf();
         if(rcl.buscarCliente(cpfCliente)){
-            rcl.add(cliente);
+            rcl.add(entidade.cliente);
         }else{
             throw new CpfException("qualquer coisa");
         }

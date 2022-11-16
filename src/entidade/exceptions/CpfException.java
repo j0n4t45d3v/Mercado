@@ -1,4 +1,4 @@
-package exceptions;
+package entidade.exceptions;
 
 public class CpfException extends Exception{
 

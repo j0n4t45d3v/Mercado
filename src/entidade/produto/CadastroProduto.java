@@ -1,7 +1,7 @@
-package produto;
+package entidade.produto;
 
-import dados.InterfaceProduto;
-import exceptions.IdProdutoException;
+import entidade.dados.InterfaceProduto;
+import entidade.exceptions.IdProdutoException;
 
 public class CadastroProduto {
     private InterfaceProduto produtos;

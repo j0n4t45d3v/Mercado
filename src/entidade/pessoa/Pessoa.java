@@ -1,4 +1,4 @@
-package pessoa;
+package entidade.pessoa;
 
 public abstract class Pessoa {
     private String nome;
