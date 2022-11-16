@@ -82,7 +82,6 @@ public class RepositorioFuncionarioVetor implements InterfaceFuncionario{
             if(funcionario != null) {
                 System.out.println(funcionario.getNome());
             }
-
         }
     }
 
