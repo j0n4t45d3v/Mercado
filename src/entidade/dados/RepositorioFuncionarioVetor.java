@@ -28,6 +28,7 @@ public class RepositorioFuncionarioVetor implements InterfaceFuncionario{
     @Override
     public void remover(Funcionario funcionario) {
 
+
     }
 
     @Override
