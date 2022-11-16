@@ -5,14 +5,16 @@ import entidade.dados.*;
 import java.util.Scanner;
 
 public class Main {
+    static RepositorioClienteLista rcl = new RepositorioClienteLista();
+    static RepositorioClienteVetor rcv = new RepositorioClienteVetor(100);
+    static RepositorioProdutoLista rpl = new RepositorioProdutoLista();
+    static RepositorioProdutoVetor rpv = new RepositorioProdutoVetor(100);
+    static RepositorioFuncionarioLista rfl = new RepositorioFuncionarioLista();
+    static RepositorioFuncionarioVetor rfv = new RepositorioFuncionarioVetor(100);
+    static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        RepositorioClienteLista rcl = new RepositorioClienteLista();
-        RepositorioClienteVetor rcv = new RepositorioClienteVetor(100);
-        RepositorioProdutoLista rpl = new RepositorioProdutoLista();
-        RepositorioProdutoVetor rpv = new RepositorioProdutoVetor(100);
-        RepositorioFuncionarioLista rfl = new RepositorioFuncionarioLista();
-        RepositorioFuncionarioVetor rfv = new RepositorioFuncionarioVetor(100);
+
+
 
         int perg;
 
@@ -25,8 +27,22 @@ public class Main {
                 case 1 -> rfl.imprimir();
                 case 2 -> rcl.listaClientes();
             }
-
         } while(perg != 0);
     }
 
+    public static void funcionario(){
+
+        int perg;
+
+        do{
+            System.out.println("Sair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3");
+            perg = input.nextInt();
+
+            switch (perg){
+                case 1 -> {
+
+                }
+            }
+        }while(perg!=0);
+    }
 }
