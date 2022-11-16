@@ -17,11 +17,17 @@ public class Main {
         int perg;
 
         do{
-            System.out.println("");
+            System.out.println("Sair-0\nFuncionario-1\nCliente-2");
             perg = input.nextInt();
 
+            switch (perg){
+                case 0 -> System.out.println("Programa encerrado!");
+                case 1 -> rfl.imprimir();
+                case 2 -> rcl.listaClientes();
+            }
+
         } while(perg != 0);
-
-
     }
+
+
 }

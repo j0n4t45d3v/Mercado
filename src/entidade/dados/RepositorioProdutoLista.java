@@ -31,7 +31,7 @@ public class RepositorioProdutoLista implements InterfaceProduto {
         Node<Produto> noAtual = this.inicio;
         String nomeItem = noAtual.getValue().getNome();
 
-        while(noAtual != null && nomeItem != nomeProduto){
+        while(noAtual != null && !nomeItem.equals(produto.getNome())){
             noAtual = noAtual.getProx();
         }
 
