@@ -8,4 +8,5 @@ public interface InterfaceFuncionario {
     void atualizar(Funcionario funcionario, String cpf);
     boolean existeFuncionario(String cpf) ;
     Funcionario buscarFuncionario(String cpf);
+    void imprimir();
 }

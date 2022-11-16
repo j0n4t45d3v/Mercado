@@ -76,6 +76,16 @@ public class RepositorioFuncionarioVetor implements InterfaceFuncionario{
         return funcionarioEncontrado;
     }
 
+    @Override
+    public void imprimir() {
+        for (Funcionario funcionario : this.vetor) {
+            if(funcionario != null) {
+                System.out.println(funcionario.getNome());
+            }
+
+        }
+    }
+
     public Funcionario[] getVetor() {
         return vetor;
     }

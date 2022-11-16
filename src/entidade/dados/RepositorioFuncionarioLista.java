@@ -27,4 +27,9 @@ public class RepositorioFuncionarioLista implements InterfaceFuncionario{
     public Funcionario buscarFuncionario(String cpf) {
         return null;
     }
+
+    @Override
+    public void imprimir() {
+
+    }
 }

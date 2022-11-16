@@ -4,14 +4,23 @@ import entidade.produto.Produto;
 
 public class RepositorioProdutoVetor implements InterfaceProduto {
 
-    @Override
-    public void add(Produto produto) {
-        InterfaceProduto.super.add(produto);
+    private Produto[] produto;
+
+    private int indice;
+
+    public RepositorioProdutoVetor(int t) {
+        this.produto = new Produto[t];
+        this.indice = 0;
     }
 
     @Override
-    public void remover(String nomeProduto) {
-        InterfaceProduto.super.remover(nomeProduto);
+    public void add(Produto produto) {
+
+    }
+
+    @Override
+    public void remover(Produto produto) {
+
     }
 
     @Override

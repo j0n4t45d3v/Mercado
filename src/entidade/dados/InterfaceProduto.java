@@ -4,8 +4,8 @@ import entidade.produto.Produto;
 
 public interface InterfaceProduto {
 
-    default void add(Produto produto){}
-    default void remover(String nomeProduto){}
+    void add(Produto produto);
+    void remover(Produto produto);
     void atualizar(Produto produto, String id);
     boolean existeProduto(String id) ;
     Produto buscarProduto(String codigoDeBarra);

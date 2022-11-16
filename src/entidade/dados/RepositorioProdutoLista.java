@@ -27,7 +27,7 @@ public class RepositorioProdutoLista implements InterfaceProduto {
     }
 
     @Override
-    public void remover(String nomeProduto) {
+    public void remover(Produto produto) {
         Node<Produto> noAtual = this.inicio;
         String nomeItem = noAtual.getValue().getNome();
 

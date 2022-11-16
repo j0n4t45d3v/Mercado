@@ -14,7 +14,7 @@ public class Main {
         InterfaceProduto ip = new RepositorioProdutoLista();
         InterfaceProduto ipv = new RepositorioProdutoVetor();
         InterfaceFuncionario itfun = new RepositorioFuncionarioLista();
-        InterfaceFuncionario ifv = new RepositorioFuncionarioVetor();
+        InterfaceFuncionario ifv = new RepositorioFuncionarioVetor(100);
 
 
     }
