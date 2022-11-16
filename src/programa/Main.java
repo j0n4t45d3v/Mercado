@@ -29,5 +29,4 @@ public class Main {
         } while(perg != 0);
     }
 
-
 }
