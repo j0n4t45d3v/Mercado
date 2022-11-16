@@ -27,23 +27,53 @@ public class RepositorioFuncionarioVetor implements InterfaceFuncionario{
 
     @Override
     public void remover(Funcionario funcionario) {
-
+        for(int i = 0 ; i < this.vetor.length; i++){
+            if (this.vetor[i].getCpf().equals(funcionario.getCpf())){
+                this.vetor[i] = null;
+                break;
+            }
+        }
 
     }
 
     @Override
     public void atualizar(Funcionario funcionario, String cpf) {
-
+        for (int i = 0 ; i <this.vetor.length ; i++){
+            if (this.vetor[i] != null){
+                String id = this.vetor[i].getCpf();
+                if (cpf.equals(id) ) this.vetor[i] = funcionario;
+            }
+        }
     }
 
     @Override
     public boolean existeFuncionario(String cpf) {
-        return false;
+        boolean retorno = false;
+        for (Funcionario funcionario : this.vetor) {
+            if (funcionario != null) {
+                String id = funcionario.getCpf();
+                if (cpf.equals(id)) {
+                    retorno = true;
+                    break;
+                }
+            }
+        }
+        return retorno;
     }
 
     @Override
-    public Funcionario buscarFuncionario(String nome) {
-        return null;
+    public Funcionario buscarFuncionario(String cpf) {
+        Funcionario funcionarioEncontrado = null;
+        for (Funcionario funcionario : this.vetor) {
+            if (funcionario != null) {
+                String id = funcionario.getCpf();
+                if (funcionario.equals(id)) {
+                    funcionarioEncontrado = funcionario;
+                    break;
+                }
+            }
+        }
+        return funcionarioEncontrado;
     }
 
     public Funcionario[] getVetor() {
