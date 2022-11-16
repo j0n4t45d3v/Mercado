@@ -22,7 +22,7 @@ public class CadastroFuncionario {
     }
 
     public void buscarFuncionario(String cpfFuncionario){
-        String msg = "Cliente não encontrado!";
+        String msg = "Funcionario não encontrado!";
         if(funcionarios.existeFuncionario(cpfFuncionario)){
             Funcionario funcionario = funcionarios.buscarFuncionario(cpfFuncionario);
             msg = funcionario.getNome()+" | Cpf: "+funcionario.getCpf();

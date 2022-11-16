@@ -9,9 +9,10 @@ public class Cliente extends Pessoa {
     private String formaDePagamento;
 
 
-    public Cliente(String nome, String dataNascimento, String cpf) {
+    public Cliente(String nome, String dataNascimento, String cpf, String formaDePagamento) {
         super(nome, dataNascimento, cpf);
         this.pedido = new Pedido();
+        this.formaDePagamento = formaDePagamento;
     }
 
     public void adicionar(Produto produto, int qtd){
