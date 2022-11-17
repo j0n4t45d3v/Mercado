@@ -75,7 +75,6 @@ public class Main {
                     System.out.println("quantidade do produto: ");
                     int qtd = input.nextInt();
 
-
                     CadastroProduto cp = new CadastroProduto(rpv);
                     Produto p = new Produto(nome, cod, preco, qtd);
 
