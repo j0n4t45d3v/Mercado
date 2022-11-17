@@ -85,8 +85,14 @@ public class Main {
 
             switch (perg){
                 case 1 ->{
+                    System.out.println("Digite o cpf do Cliente que deseja remover :");
+                    String cpfBuscado = input.next();
+                    Cliente c = rcv.buscarCliente(cpfBuscado);
+                    rcv.remover(c);
+                } case 2 ->{
 
                 }
+
             }
 
         }while (perg !=0);
