@@ -5,6 +5,7 @@ import entidade.cliente.Cliente;
 import entidade.dados.*;
 import entidade.exceptions.CpfException;
 import entidade.exceptions.IdProdutoException;
+import entidade.funcionario.Funcionario;
 import entidade.produto.CadastroProduto;
 import entidade.produto.Produto;
 
@@ -32,13 +33,19 @@ public class Main {
             switch (perg){
                 case 0 -> System.out.println("Programa encerrado!");
                 case 1 ->{
-                    funcionario();
+                    System.out.println("digite seu cpf: ");
+                    String recebeCpf = input.next();
+                    if(recebeCpf.length() == 11){
+                        funcionario(recebeCpf);
+                    }else{
+                        System.out.println("Cpf invalido!");
+                    }
                 }
                 case 2 -> cliente();
             }
         } while(perg != 0);
     }
-    public static void funcionario() throws CpfException, IdProdutoException {
+    public static void funcionario(String cpf) throws CpfException, IdProdutoException {
         //fazer validação para ver se o funcionario é gerente ou repositor
         int perg;
 
@@ -51,11 +58,11 @@ public class Main {
                     System.out.println("Nome do Cliente: ");
                     String nome = input.next();
                     System.out.println("Cpf do Cliente: ");
-                    String cpf = input.next();
+                    String cpfCliente = input.next();
                     System.out.println("Data nascimento do Cliente: ");
                     String dataNascimento = input.next();
 
-                    Cliente c = new Cliente(nome, dataNascimento, cpf, "dinheiro");
+                    Cliente c = new Cliente(nome, dataNascimento, cpfCliente, "dinheiro");
                     cc.cadastrar(c);
                 }
                 case 2 ->{
