@@ -26,22 +26,24 @@ public class Main {
         int perg;
 
         do{
-            System.out.println("Sair-0\nFuncionario-1\nCliente-2");
+            System.out.println("Sair-0\nFuncionario-1\nCliente-2\nCadastrar Funcionario-3");
             perg = input.nextInt();
 
             switch (perg){
                 case 0 -> System.out.println("Programa encerrado!");
-                case 1 -> funcionario();
+                case 1 ->{
+                    funcionario();
+                }
                 case 2 -> cliente();
             }
         } while(perg != 0);
     }
     public static void funcionario() throws CpfException, IdProdutoException {
-
+        //fazer validação para ver se o funcionario é gerente ou repositor
         int perg;
 
         do{
-            System.out.println("\nSair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3");
+            System.out.println("\nSair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3\nListar Clientes cadastrados-4");
             perg = input.nextInt();
 
             switch (perg){
@@ -72,6 +74,9 @@ public class Main {
 
                     cp.adicionarProduto(p);
                 }
+                case 4 ->{
+                    rcl.listaClientes();
+                }
 
             }
         }while(perg!=0);
@@ -92,7 +97,6 @@ public class Main {
                 } case 2 ->{
 
                 }
-
             }
 
         }while (perg !=0);

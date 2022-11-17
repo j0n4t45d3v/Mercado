@@ -39,7 +39,11 @@ public class RepositorioClienteLista implements InterfaceCliente{
             noAtual = noAtual.getProx();
         }
 
-        if(this.inicio.equals(noAtual)){
+        if(noAtual != null && noAtual.equals(this.inicio) && noAtual.equals(this.fim)){
+            this.inicio.setValue(null);
+            this.fim.setValue(null);
+            this.fim.setAnt(null);
+        }else if(this.inicio != null && this.inicio.equals(noAtual)){
             this.inicio = noAtual.getProx();
             this.inicio.setAnt(null);
         }else if(this.fim.equals(noAtual)){
@@ -71,15 +75,27 @@ public class RepositorioClienteLista implements InterfaceCliente{
 
     @Override
     public Cliente buscarCliente(String cpf) {
-        return null;
+        Node<Cliente> noAtual = this.inicio;
+        String cpfNoAtual = noAtual.getValue().getCpf();
+        Cliente cliente = noAtual.getValue();
+
+        while(noAtual != null && !cpfNoAtual.equals(cpf)){
+            noAtual = noAtual.getProx();
+        }
+
+        return cliente;
     }
 
     public void listaClientes(){
         Node<Cliente> noAtual = this.inicio;
-
-        while(noAtual != null){
-            System.out.println(noAtual.getValue().getNome());
-            noAtual = noAtual.getProx();
+        if(this.getTamanho() > 0){
+            while(noAtual != null){
+                System.out.println(noAtual.getValue().getNome());
+                noAtual = noAtual.getProx();
+            }
+        }else{
+            System.out.println("Lista vazia!");
         }
+
     }
 }
