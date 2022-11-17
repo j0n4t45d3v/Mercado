@@ -18,7 +18,8 @@ public class Main {
     static RepositorioFuncionarioLista rfl = new RepositorioFuncionarioLista();
     static RepositorioFuncionarioVetor rfv = new RepositorioFuncionarioVetor(100);
     static Scanner input = new Scanner(System.in);
-    public static void main(String[] args) {
+    static CadastroCliente cc = new CadastroCliente(rcl);
+    public static void main(String[] args) throws IdProdutoException, CpfException {
 
 
 
@@ -30,8 +31,8 @@ public class Main {
 
             switch (perg){
                 case 0 -> System.out.println("Programa encerrado!");
-                case 1 -> rfl.imprimir();
-                case 2 -> rcl.listaClientes();
+                case 1 -> funcionario();
+                case 2 -> cliente();
             }
         } while(perg != 0);
     }
@@ -52,7 +53,6 @@ public class Main {
                     System.out.println("Data nascimento do Cliente: ");
                     String dataNascimento = input.next();
 
-                    CadastroCliente cc = new CadastroCliente(rcl);
                     Cliente c = new Cliente(nome, dataNascimento, cpf, "dinheiro");
                     cc.cadastrar(c);
                 }
@@ -87,8 +87,8 @@ public class Main {
                 case 1 ->{
                     System.out.println("Digite o cpf do Cliente que deseja remover :");
                     String cpfBuscado = input.next();
-                    Cliente c = rcv.buscarCliente(cpfBuscado);
-                    rcv.remover(c);
+                    Cliente c = cc.buscarCliente(cpfBuscado);
+                    rcl.remover(c);
                 } case 2 ->{
 
                 }

@@ -20,13 +20,15 @@ public class CadastroCliente {
         }
     }
 
-    public void buscarCliente(String cpfCliente){
+    public Cliente buscarCliente(String cpfCliente){
         String msg = "Cliente não encontrado!";
+        Cliente cliente = null;
         if(clientes.existeCliente(cpfCliente)){
-            Cliente cliente = clientes.buscarCliente(cpfCliente);
-            msg = cliente.getNome()+" | Cpf: "+cliente.getCpf();
+            cliente = clientes.buscarCliente(cpfCliente);
+            msg = "Cliente encontrado";
         }
         System.out.println(msg);
+        return cliente;
     }
 
 }
