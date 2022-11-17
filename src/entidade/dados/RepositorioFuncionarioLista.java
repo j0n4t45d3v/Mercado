@@ -3,9 +3,29 @@ package entidade.dados;
 import entidade.funcionario.Funcionario;
 
 public class RepositorioFuncionarioLista implements InterfaceFuncionario{
-    @Override
-    public void add(Funcionario funcionario) {
+    private Node<Funcionario> inicio;
+    private Node<Funcionario> fim;
+    private int tamanho;
 
+    public RepositorioFuncionarioLista() {
+    }
+
+    public RepositorioFuncionarioLista(Node<Funcionario> inicio, Node<Funcionario> fim, int tamanho) {
+        this.inicio = inicio;
+        this.fim = fim;
+        this.tamanho = tamanho;
+    }
+
+    public void add(Funcionario funcionario) {
+        Node<Funcionario> no = new Node<>(funcionario);
+        if (this.inicio == null){
+            this.inicio = no;
+        }else {
+            this.fim.setProx(no);
+            no.setAnt(this.fim);
+        }
+        this.fim = no;
+        tamanho++;
     }
 
     @Override
