@@ -1,7 +1,12 @@
 package programa;
 
+import entidade.cliente.CadastroCliente;
 import entidade.cliente.Cliente;
 import entidade.dados.*;
+import entidade.exceptions.CpfException;
+import entidade.exceptions.IdProdutoException;
+import entidade.produto.CadastroProduto;
+import entidade.produto.Produto;
 
 import java.util.Scanner;
 
@@ -30,18 +35,44 @@ public class Main {
             }
         } while(perg != 0);
     }
-    public static void funcionario(){
+    public static void funcionario() throws CpfException, IdProdutoException {
 
         int perg;
 
         do{
-            System.out.println("Sair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3");
+            System.out.println("\nSair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3");
             perg = input.nextInt();
 
             switch (perg){
                 case 1 -> {
+                    System.out.println("Nome do Cliente: ");
+                    String nome = input.next();
+                    System.out.println("Cpf do Cliente: ");
+                    String cpf = input.next();
+                    System.out.println("Data nascimento do Cliente: ");
+                    String dataNascimento = input.next();
 
+                    CadastroCliente cc = new CadastroCliente(rcl);
+                    Cliente c = new Cliente(nome, dataNascimento, cpf, "dinheiro");
+                    cc.cadastrar(c);
                 }
+                case 2 ->{
+                    System.out.println("Nome do produto: ");
+                    String nome = input.next();
+                    System.out.println("codigo de barra do produto: ");
+                    String cod = input.next();
+                    System.out.println("preço do produto: ");
+                    double preco = input.nextDouble();
+                    System.out.println("quantidade do produto: ");
+                    int qtd = input.nextInt();
+
+
+                    CadastroProduto cp = new CadastroProduto(rpv);
+                    Produto p = new Produto(nome, cod, preco, qtd);
+
+                    cp.adicionarProduto(p);
+                }
+
             }
         }while(perg!=0);
     }
@@ -54,14 +85,8 @@ public class Main {
 
             switch (perg){
                 case 1 ->{
-                    System.out.println("Digite o cpf do Cliente que deseja remover :");
-                    String cpfBuscado = input.next();
-                    Cliente c = rcv.buscarCliente(cpfBuscado);
-                    rcv.remover(c);
-                } case 2 ->{
 
                 }
-
             }
 
         }while (perg !=0);
