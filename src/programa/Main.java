@@ -47,6 +47,10 @@ public class Main {
             }
         } while(perg != 0);
     }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------
+    //Metodos
+
     public static void funcionario(String cpf) throws CpfException, IdProdutoException {
         //fazer validação para ver se o funcionario é gerente ou repositor
 
@@ -75,46 +79,45 @@ public class Main {
 
                 }
             }while(perg!=0);
+        }else{
+            do{
+                System.out.println("\nSair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3\nListar Clientes cadastrados-4");
+                perg = input.nextInt();
+
+                switch (perg){
+                    case 1 -> {
+                        System.out.println("Nome do Cliente: ");
+                        String nome = input.next();
+                        System.out.println("Cpf do Cliente: ");
+                        String cpfCliente = input.next();
+                        System.out.println("Data nascimento do Cliente: ");
+                        String dataNascimento = input.next();
+
+                        Cliente c = new Cliente(nome, dataNascimento, cpfCliente, "dinheiro");
+                        cc.cadastrar(c);
+                    }
+                    case 2 ->{
+                        System.out.println("Nome do produto: ");
+                        String nome = input.next();
+                        System.out.println("codigo de barra do produto: ");
+                        String cod = input.next();
+                        System.out.println("preço do produto: ");
+                        double preco = input.nextDouble();
+                        System.out.println("quantidade do produto: ");
+                        int qtd = input.nextInt();
+
+                        CadastroProduto cp = new CadastroProduto(rpv);
+                        Produto p = new Produto(nome, cod, preco, qtd);
+
+                        cp.adicionarProduto(p);
+                    }
+                    case 4 ->{
+                        rcl.listaClientes();
+                    }
+                }
+            }while(perg!=0);
         }
 
-
-
-        do{
-            System.out.println("\nSair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3\nListar Clientes cadastrados-4");
-            perg = input.nextInt();
-
-            switch (perg){
-                case 1 -> {
-                    System.out.println("Nome do Cliente: ");
-                    String nome = input.next();
-                    System.out.println("Cpf do Cliente: ");
-                    String cpfCliente = input.next();
-                    System.out.println("Data nascimento do Cliente: ");
-                    String dataNascimento = input.next();
-
-                    Cliente c = new Cliente(nome, dataNascimento, cpfCliente, "dinheiro");
-                    cc.cadastrar(c);
-                }
-                case 2 ->{
-                    System.out.println("Nome do produto: ");
-                    String nome = input.next();
-                    System.out.println("codigo de barra do produto: ");
-                    String cod = input.next();
-                    System.out.println("preço do produto: ");
-                    double preco = input.nextDouble();
-                    System.out.println("quantidade do produto: ");
-                    int qtd = input.nextInt();
-
-                    CadastroProduto cp = new CadastroProduto(rpv);
-                    Produto p = new Produto(nome, cod, preco, qtd);
-
-                    cp.adicionarProduto(p);
-                }
-                case 4 ->{
-                    rcl.listaClientes();
-                }
-            }
-        }while(perg!=0);
     }
     public static void cliente(){
 
