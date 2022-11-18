@@ -24,7 +24,7 @@ public class Main {
     static CadastroFuncionario cf = new CadastroFuncionario(rfv);
     public static void main(String[] args) throws IdProdutoException, CpfException {
         Funcionario gerente = new Funcionario("Cleberson", "30/02/1980", "2347658012", "gerente");
-        cf.cadastrarFuncionario(gerente);
+        //cf.cadastrarFuncionario(gerente);
 
         int perg;
 
@@ -48,7 +48,7 @@ public class Main {
         } while(perg != 0);
     }
 
-    //-------------------------------------------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------------
     //Metodos
 
     public static void funcionario(String cpf) throws CpfException, IdProdutoException {
@@ -58,9 +58,12 @@ public class Main {
 
         int perg;
 
-        if(funcionario.getCargo().equalsIgnoreCase("gerente")){
-            do{
-                System.out.println("\nSair-0\nAdicionar Funcionario-1\nListar Clientes cadastrados-2");
+        do{
+            if(funcionario.getCargo().equalsIgnoreCase("gerente")){
+
+                System.out.println("voce é o gerente");
+
+                System.out.println("\nSair-0\nAdicionar Funcionario-1\nListar Clientes cadastrados-2\nListar Funcionarios-3");
                 perg = input.nextInt();
 
                 switch (perg){
@@ -78,9 +81,8 @@ public class Main {
                     case 2 -> rcl.listaClientes();
 
                 }
-            }while(perg!=0);
-        }else{
-            do{
+            }else{
+
                 System.out.println("\nSair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3\nListar Clientes cadastrados-4");
                 perg = input.nextInt();
 
@@ -115,8 +117,8 @@ public class Main {
                         rcl.listaClientes();
                     }
                 }
-            }while(perg!=0);
-        }
+            }
+        }while(perg!=0);
 
     }
     public static void cliente(){
