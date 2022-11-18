@@ -5,6 +5,7 @@ import entidade.cliente.Cliente;
 import entidade.dados.*;
 import entidade.exceptions.CpfException;
 import entidade.exceptions.IdProdutoException;
+import entidade.funcionario.CadastroFuncionario;
 import entidade.funcionario.Funcionario;
 import entidade.produto.CadastroProduto;
 import entidade.produto.Produto;
@@ -20,9 +21,10 @@ public class Main {
     static RepositorioFuncionarioVetor rfv = new RepositorioFuncionarioVetor(100);
     static Scanner input = new Scanner(System.in);
     static CadastroCliente cc = new CadastroCliente(rcl);
+    static CadastroFuncionario cf = new CadastroFuncionario(rfv);
     public static void main(String[] args) throws IdProdutoException, CpfException {
-
-
+        Funcionario gerente = new Funcionario("Cleberson", "30/02/1980", "2347658012", "gerente");
+        cf.cadastrarFuncionario(gerente);
 
         int perg;
 
@@ -47,7 +49,35 @@ public class Main {
     }
     public static void funcionario(String cpf) throws CpfException, IdProdutoException {
         //fazer validação para ver se o funcionario é gerente ou repositor
+
+        Funcionario funcionario = rfv.buscarFuncionario(cpf);
+
         int perg;
+
+        if(funcionario.getCargo().equalsIgnoreCase("gerente")){
+            do{
+                System.out.println("\nSair-0\nAdicionar Funcionario-1\nListar Clientes cadastrados-2");
+                perg = input.nextInt();
+
+                switch (perg){
+                    case 1 -> {
+                        System.out.println("Nome do Cliente: ");
+                        String nome = input.next();
+                        System.out.println("Cpf do Cliente: ");
+                        String cpfCliente = input.next();
+                        System.out.println("Data nascimento do Cliente: ");
+                        String dataNascimento = input.next();
+
+                        Cliente c = new Cliente(nome, dataNascimento, cpfCliente, "dinheiro");
+                        cc.cadastrar(c);
+                    }
+                    case 2 -> rcl.listaClientes();
+
+                }
+            }while(perg!=0);
+        }
+
+
 
         do{
             System.out.println("\nSair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3\nListar Clientes cadastrados-4");
