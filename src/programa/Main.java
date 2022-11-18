@@ -136,7 +136,7 @@ public class Main {
                     System.out.println("Digite o cpf do cliente que deseja atualizar :");
                     String cpfAtualizar = input.next();
                     Cliente c = cc.buscarCliente(cpfAtualizar);
-                    System.out.println("O que deseja atualizar : \nNome \nData de nascimento \nForma de pagamento;");
+                    System.out.println("O que deseja atualizar : \nNome; \nData de nascimento; \nForma de pagamento;");
                     String atualizar = input.next();
                     switch (atualizar) {
                         case "Nome" -> {
