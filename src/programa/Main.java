@@ -100,6 +100,30 @@ public class Main {
                     Cliente c = cc.buscarCliente(cpfBuscado);
                     rcl.remover(c);
                 } case 2 ->{
+                    System.out.println("Digite o cpf do cliente que deseja atualizar :");
+                    String cpfAtualizar = input.next();
+                    Cliente c = cc.buscarCliente(cpfAtualizar);
+                    System.out.println("O que deseja atualizar : \nNome \nData de nascimento \nForma de pagamento;");
+                    String atualizar = input.next();
+                    switch (atualizar) {
+                        case "Nome" -> {
+                            System.out.println("insira um novo nome");
+                            String atualizarNome = input.next();
+                            c.setNome(atualizarNome);
+                        }
+                        case "Data de nascimento" -> {
+                            System.out.println("insira uma nova data de nascimento");
+                            String atualizarData = input.next();
+                            c.setDataNascimento(atualizarData);
+                        }
+                        case "Forma de pagamento" -> {
+                            System.out.println("insira uma nova forma de pagamento");
+                            String atualizarForma = input.next();
+                            c.setFormaDePagamento(atualizarForma);
+                        }
+                    }
+                    rcl.atualizar(c,cpfAtualizar);
+                } case 3 ->{
 
                 }
             }
