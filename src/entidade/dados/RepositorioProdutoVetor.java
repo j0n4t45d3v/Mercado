@@ -58,10 +58,10 @@ public class RepositorioProdutoVetor implements InterfaceProduto {
     }
 
     @Override
-    public Produto buscarProduto(String codigoDeBarra) {
+    public Produto buscarProduto(String nome) {
         Produto existe = null;
         for (Produto produto : this.vetor) {
-            if (produto.getId().equals(codigoDeBarra)){
+            if (produto.getId().equals(nome)){
                 existe = produto;
             }
         }

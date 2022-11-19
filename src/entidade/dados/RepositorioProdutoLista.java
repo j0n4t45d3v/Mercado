@@ -60,16 +60,24 @@ public class RepositorioProdutoLista implements InterfaceProduto {
     }
 
     @Override
-    public Produto buscarProduto(String codigoDeBarra) {
+    public Produto buscarProduto(String nome) {
         return null;
     }
 
-    public void listaClientes(){
+    public void listaProdutos(){
         Node<Produto> noAtual = this.inicio;
 
         while(noAtual != null){
             System.out.println(noAtual.getValue().getNome());
             noAtual = noAtual.getProx();
         }
+    }
+
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
     }
 }

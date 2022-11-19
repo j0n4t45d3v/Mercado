@@ -12,7 +12,7 @@ import entidade.produto.Produto;
 
 import java.util.Scanner;
 
-public class Main {
+public class  Main {
     static RepositorioClienteLista rcl = new RepositorioClienteLista();
     static RepositorioClienteVetor rcv = new RepositorioClienteVetor(100);
     static RepositorioProdutoLista rpl = new RepositorioProdutoLista();
@@ -159,6 +159,17 @@ public class Main {
                     }
                     rcl.atualizar(c,cpfAtualizar);
                 } case 3 ->{
+                    System.out.println("Produtos disponivel :");
+                    for(int i = 0 ; i < rpl.getTamanho(); i++){
+                        rpl.listaProdutos();
+                    }
+                    System.out.println("Digite o produto que deseja adicionar na lista :");
+                    String produto = input.next();
+                    for (int i = 0 ; i < rpl.getTamanho(); i++){
+                        if (produto.equals(rpl.getClass().getName())){
+
+                        }
+                    }
 
                 }
             }
