@@ -47,7 +47,7 @@ public class  Main {
                     if(recebeCpf.length() == 11){
                         funcionario(recebeCpf);
                     }else{
-                        System.out.println("Cpf invalido!");
+                        throw new CpfException("CPF Invalido!");
                     }
                 }
                 case 2 -> cliente();
@@ -68,10 +68,10 @@ public class  Main {
         int perg = -1;
 
         do{
-            if(funcionario.getCargo().equalsIgnoreCase("gerente")){
+            if(funcionario.getCargo().equalsIgnoreCase("gerente")){ //acesso do gerente
 
 
-                System.out.println("\nSair-0\nAdicionar Funcionario-1\nListar Clientes cadastrados-2\nListar Funcionarios-3\nListar Produtos-4");
+                System.out.println("\nSair-0\nAdicionar Funcionario-1\nAdicionar Novo Cliente-2\nListar Clientes cadastrados-3\nListar Funcionarios-4\nListar Produtos-5");
                 perg = input.nextInt();
 
                 switch (perg){
@@ -79,20 +79,34 @@ public class  Main {
                         System.out.println("Nome do novo funcionario: ");
                         String nome = input.next();
                         System.out.println("Cpf do novo funcionario: ");
-                        String cpfCliente = input.next();
+                        String cpfFuncionario = input.next();
                         System.out.println("Data nascimento do novo funcionario: ");
                         String dataNascimento = input.next();
                         System.out.println("Cargo do novo funcionario: ");
                         String cargo = input.next();
 
-                        Funcionario f = new Funcionario(nome, dataNascimento, cpfCliente, cargo);
+                        Funcionario f = new Funcionario(nome, dataNascimento, cpfFuncionario, cargo);
                         cf.cadastrarFuncionario(f);
                     }
-                    case 2 -> rc.imprimir();
-                    case 3 -> rf.imprimir();
+                    case 2 -> {
+                        System.out.println("Nome do cliente: ");
+                        String nome = input.next();
+                        System.out.println("Cpf do cliente: ");
+                        String cpfCliente = input.next();
+                        System.out.println("Data nascimento do cliente: ");
+                        String dataNascimento = input.next();
+                        System.out.println("Cargo do novo funcionario: ");
+                        String formaPagamento = input.next();
+
+                        Cliente c = new Cliente(nome, dataNascimento, cpfCliente, formaPagamento);
+                        cc.cadastrar(c);
+                    }
+                    case 3 -> rc.imprimir();
+                    case 4 -> rf.imprimir();
+                    case 5 -> rp.imprimir();
 
                 }
-            }else if(funcionario.getCargo().equalsIgnoreCase("repositor")){
+            }else if(funcionario.getCargo().equalsIgnoreCase("repositor")){ // acesso do repositor
 
                 System.out.println("\nSair-0\nAdicionar Produto-1\nListar Produtos-2");
                 perg = input.nextInt();
@@ -114,9 +128,7 @@ public class  Main {
                         cp.adicionarProduto(p);
 
                     }
-                    case 2 -> {
-                        rp.imprimir();
-                    }
+                    case 2 -> rp.imprimir();
 
                 }
             }
