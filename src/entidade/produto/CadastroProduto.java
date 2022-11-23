@@ -16,11 +16,10 @@ public class CadastroProduto {
             throw new IdProdutoException();
         }else{
             if(produtos.existeProduto(produto.getId())) {
-                produtos.atualizar(produto, produto.getId());
+               throw new IdProdutoException("Codigo ja existe");
             }else{
                 produtos.add(produto);
             }
-
         }
     }
 

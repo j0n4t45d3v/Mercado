@@ -40,9 +40,12 @@ public class RepositorioProdutoVetor implements InterfaceProduto {
     @Override
     public void atualizar(Produto produto, String id) {
         for (int i = 0 ; i < this.vetor.length ; i++){
-            if (this.vetor[i].getId().equals(id)){
-                this.vetor[i] = produto;
+            if (this.vetor[i] != null){
+                if (this.vetor[i].getId().equals(id)){
+                    this.vetor[i] = produto;
+                }
             }
+
         }
     }
 //ajustar

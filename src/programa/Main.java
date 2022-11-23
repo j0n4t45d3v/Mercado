@@ -30,6 +30,8 @@ public class  Main {
     public static void main(String[] args) throws IdProdutoException, CpfException {
         Funcionario gerente = new Funcionario("Cleberson", "30/02/1980", "23476580123", "gerente");
         cf.cadastrarFuncionario(gerente);
+        OBbjetoComOsDados od = new OBbjetoComOsDados(rpv);
+        od.adicionarProdutos();
 
         int perg;
 
@@ -50,7 +52,9 @@ public class  Main {
                 }
                 case 2 -> cliente();
             }
+
         } while(perg != 0);
+
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------
@@ -95,7 +99,7 @@ public class  Main {
 
                 switch (perg){
                     case 1 ->{
-                        /*System.out.println("Nome do produto: ");
+                        System.out.println("Nome do produto: ");
                         String nome = input.next();
                         System.out.println("codigo de barra do produto: ");
                         String cod = input.next();
@@ -107,9 +111,8 @@ public class  Main {
                         CadastroProduto cp = new CadastroProduto(rpv);
                         Produto p = new Produto(nome, cod, preco, qtd);
 
-                        cp.adicionarProduto(p);*/
-                        OBbjetoComOsDados od = new OBbjetoComOsDados(rpv);
-                        od.adicionarProdutos();
+                        cp.adicionarProduto(p);
+
                     }
                     case 2 -> {
                         rpv.imprimir();
@@ -138,7 +141,7 @@ public class  Main {
                     String cpfAtualizar = input.next();
                     Cliente c = cc.buscarCliente(cpfAtualizar);
                     System.out.println("O que deseja atualizar : \nNome; \nData de nascimento; \nForma de pagamento;");
-                    String atualizar = input.next();
+                    String atualizar = input.nextLine().trim();
                     switch (atualizar) {
                         case "Nome" -> {
                             System.out.println("insira um novo nome");
@@ -160,15 +163,16 @@ public class  Main {
                 } case 3 ->{
                     System.out.println("Produtos disponivel :");
                     for(int i = 0 ; i < rpl.getTamanho(); i++){
-                        rpl.listaProdutos();
+                        rpv.imprimir();
                     }
                     System.out.println("Digite o produto que deseja adicionar na lista :");
                     String produto = input.next();
-                    for (int i = 0 ; i < rpl.getTamanho(); i++){
+                    for (int i = 0 ; i < rpv.(); i++){
                         if (produto.equals(rpl.getClass().getName())){
 
                         }
                     }
+
 
                 }
             }

@@ -66,10 +66,6 @@ public class RepositorioProdutoLista implements InterfaceProduto {
 
     @Override
     public void imprimir() {
-
-    }
-
-    public void listaProdutos(){
         Node<Produto> noAtual = this.inicio;
 
         while(noAtual != null){
