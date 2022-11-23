@@ -45,15 +45,18 @@ public class RepositorioProdutoVetor implements InterfaceProduto {
             }
         }
     }
-
+//ajustar
     @Override
     public boolean existeProduto(String id) {
         boolean produtoEncontrado = false;
         for (Produto produto : this.vetor) {
-            if (id.equals(produto.getId())) {
-                produtoEncontrado = true;
-                break;
+            if(produto != null){
+                if (id.equals(produto.getId())) {
+                    produtoEncontrado = true;
+                    break;
+                }
             }
+            break;
         }
         return produtoEncontrado;
     }
