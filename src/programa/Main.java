@@ -18,19 +18,19 @@ import java.util.Scanner;
 * */
 
 public class  Main {
-    static RepositorioClienteLista rcl = new RepositorioClienteLista();
-    static RepositorioClienteVetor rcv = new RepositorioClienteVetor(100);
-    static RepositorioProdutoLista rpl = new RepositorioProdutoLista();
-    static RepositorioProdutoVetor rpv = new RepositorioProdutoVetor(100);
-    static RepositorioFuncionarioLista rfl = new RepositorioFuncionarioLista();
-    static RepositorioFuncionarioVetor rfv = new RepositorioFuncionarioVetor(100);
+//    static RepositorioClienteLista rc = new RepositorioClienteLista();
+    static RepositorioClienteVetor rc = new RepositorioClienteVetor(100);
+//    static RepositorioProdutoLista rp = new RepositorioProdutoLista();
+    static RepositorioProdutoVetor rp = new RepositorioProdutoVetor(100);
+//    static RepositorioFuncionarioLista rf = new RepositorioFuncionarioLista();
+    static RepositorioFuncionarioVetor rf = new RepositorioFuncionarioVetor(100);
     static Scanner input = new Scanner(System.in);
-    static CadastroCliente cc = new CadastroCliente(rcl);
-    static CadastroFuncionario cf = new CadastroFuncionario(rfv);
+    static CadastroCliente cc = new CadastroCliente(rc);
+    static CadastroFuncionario cf = new CadastroFuncionario(rf);
     public static void main(String[] args) throws IdProdutoException, CpfException {
         Funcionario gerente = new Funcionario("Cleberson", "30/02/1980", "23476580123", "gerente");
         cf.cadastrarFuncionario(gerente);
-        OBbjetoComOsDados od = new OBbjetoComOsDados(rpv);
+        OBbjetoComOsDados od = new OBbjetoComOsDados(rp);
         od.adicionarProdutos();
 
         int perg;
@@ -63,7 +63,7 @@ public class  Main {
     public static void funcionario(String cpf) throws CpfException, IdProdutoException {
         //fazer validação para ver se o funcionario é gerente ou repositor
 
-        Funcionario funcionario = rfv.buscarFuncionario(cpf);
+        Funcionario funcionario = rf.buscarFuncionario(cpf);
 
         int perg = -1;
 
@@ -88,8 +88,8 @@ public class  Main {
                         Funcionario f = new Funcionario(nome, dataNascimento, cpfCliente, cargo);
                         cf.cadastrarFuncionario(f);
                     }
-                    case 2 -> rcl.listaClientes();
-                    case 3 -> rfv.imprimir();
+                    case 2 -> rc.imprimir();
+                    case 3 -> rf.imprimir();
 
                 }
             }else if(funcionario.getCargo().equalsIgnoreCase("repositor")){
@@ -108,14 +108,14 @@ public class  Main {
                         System.out.println("quantidade do produto: ");
                         int qtd = input.nextInt();
 
-                        CadastroProduto cp = new CadastroProduto(rpv);
+                        CadastroProduto cp = new CadastroProduto(rp);
                         Produto p = new Produto(nome, cod, preco, qtd);
 
                         cp.adicionarProduto(p);
 
                     }
                     case 2 -> {
-                        rpv.imprimir();
+                        rp.imprimir();
                     }
 
                 }
@@ -135,7 +135,7 @@ public class  Main {
                     System.out.println("Digite o cpf do Cliente que deseja remover :");
                     String cpfBuscado = input.next();
                     Cliente c = cc.buscarCliente(cpfBuscado);
-                    rcl.remover(c);
+                    rc.remover(c);
                 } case 2 ->{
                     System.out.println("Digite o cpf do cliente que deseja atualizar :");
                     String cpfAtualizar = input.next();
@@ -159,16 +159,15 @@ public class  Main {
                             c.setFormaDePagamento(atualizarForma);
                         }
                     }
-                    rcl.atualizar(c,cpfAtualizar);
+                    rc.atualizar(c,cpfAtualizar);
                 } case 3 ->{
                     System.out.println("Produtos disponivel :");
-                    for(int i = 0 ; i < rpl.getTamanho(); i++){
-                        rpv.imprimir();
-                    }
+                    rp.imprimir();
+
                     System.out.println("Digite o produto que deseja adicionar na lista :");
                     String produto = input.next();
-                    for (int i = 0 ; i < rpv.(); i++){
-                        if (produto.equals(rpl.getClass().getName())){
+                    for (int i = 0 ; i < 10; i++){
+                        if (produto.equals(rp.getClass().getName())){
 
                         }
                     }
