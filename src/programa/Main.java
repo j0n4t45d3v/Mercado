@@ -50,7 +50,15 @@ public class  Main {
                         throw new CpfException("CPF Invalido!");
                     }
                 }
-                case 2 -> cliente();
+                case 2 -> {
+                    System.out.println("Digite seu cpf: ");
+                    String buscarCpf = input.next();
+                    if (buscarCpf.length() ==11){
+                        cliente(buscarCpf);
+                    }else {
+                        throw new CpfException("CPF Invalido");
+                    }
+                }
             }
 
         } while(perg != 0);
@@ -135,7 +143,7 @@ public class  Main {
         }while(perg!=0);
 
     }
-    public static void cliente(){
+    public static void cliente(String cpf){
 
         int perg;
         do {
@@ -178,12 +186,9 @@ public class  Main {
 
                     System.out.println("Digite o produto que deseja adicionar na lista :");
                     String produto = input.next();
-                    for (int i = 0 ; i < 10; i++){
-                        if (produto.equals(rp.getClass().getName())){
 
-                        }
-                    }
-
+                    RepositorioProdutoVetor rcp = new RepositorioProdutoVetor(100);
+                    //RepositorioProdutoLista rcp = new RepositorioProdutoLista();
 
                 }
             }
