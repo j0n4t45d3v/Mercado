@@ -23,13 +23,13 @@ public class  Main {
     static CadastroCliente cc = new CadastroCliente(rcl);
     static CadastroFuncionario cf = new CadastroFuncionario(rfv);
     public static void main(String[] args) throws IdProdutoException, CpfException {
-        Funcionario gerente = new Funcionario("Cleberson", "30/02/1980", "2347658012", "gerente");
-        //cf.cadastrarFuncionario(gerente);
+        Funcionario gerente = new Funcionario("Cleberson", "30/02/1980", "23476580123", "gerente");
+        cf.cadastrarFuncionario(gerente);
 
         int perg;
 
         do{
-            System.out.println("Sair-0\nFuncionario-1\nCliente-2\nCadastrar Funcionario-3");
+            System.out.println("Sair-0\nFuncionario-1\nCliente-2");
             perg = input.nextInt();
 
             switch (perg){
@@ -56,49 +56,40 @@ public class  Main {
 
         Funcionario funcionario = rfv.buscarFuncionario(cpf);
 
-        int perg;
+        int perg = -1;
 
         do{
             if(funcionario.getCargo().equalsIgnoreCase("gerente")){
 
-                System.out.println("voce é o gerente");
 
-                System.out.println("\nSair-0\nAdicionar Funcionario-1\nListar Clientes cadastrados-2\nListar Funcionarios-3");
+                System.out.println("\nSair-0\nAdicionar Funcionario-1\nListar Clientes cadastrados-2\nListar Funcionarios-3\nListar Produtos-4");
                 perg = input.nextInt();
 
                 switch (perg){
                     case 1 -> {
-                        System.out.println("Nome do Cliente: ");
+                        System.out.println("Nome do novo funcionario: ");
                         String nome = input.next();
-                        System.out.println("Cpf do Cliente: ");
+                        System.out.println("Cpf do novo funcionario: ");
                         String cpfCliente = input.next();
-                        System.out.println("Data nascimento do Cliente: ");
+                        System.out.println("Data nascimento do novo funcionario: ");
                         String dataNascimento = input.next();
+                        System.out.println("Cargo do novo funcionario: ");
+                        String cargo = input.next();
 
-                        Cliente c = new Cliente(nome, dataNascimento, cpfCliente, "dinheiro");
-                        cc.cadastrar(c);
+                        Funcionario f = new Funcionario(nome, dataNascimento, cpfCliente, cargo);
+                        cf.cadastrarFuncionario(f);
                     }
                     case 2 -> rcl.listaClientes();
+                    case 3 -> rfv.imprimir();
 
                 }
-            }else{
+            }else if(funcionario.getCargo().equalsIgnoreCase("repositor")){
 
-                System.out.println("\nSair-0\nAdicionar Cliente-1\nAdicionar Produto-2\nAdicionar Funcionario-3\nListar Clientes cadastrados-4");
+                System.out.println("\nSair-0\nAdicionar Produto-1\nListar Produtos-2");
                 perg = input.nextInt();
 
                 switch (perg){
-                    case 1 -> {
-                        System.out.println("Nome do Cliente: ");
-                        String nome = input.next();
-                        System.out.println("Cpf do Cliente: ");
-                        String cpfCliente = input.next();
-                        System.out.println("Data nascimento do Cliente: ");
-                        String dataNascimento = input.next();
-
-                        Cliente c = new Cliente(nome, dataNascimento, cpfCliente, "dinheiro");
-                        cc.cadastrar(c);
-                    }
-                    case 2 ->{
+                    case 1 ->{
                         System.out.println("Nome do produto: ");
                         String nome = input.next();
                         System.out.println("codigo de barra do produto: ");
@@ -113,9 +104,10 @@ public class  Main {
 
                         cp.adicionarProduto(p);
                     }
-                    case 4 ->{
-                        rcl.listaClientes();
+                    case 2 -> {
+                        rpv.imprimir();
                     }
+
                 }
             }
         }while(perg!=0);

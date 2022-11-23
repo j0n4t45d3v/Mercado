@@ -67,7 +67,7 @@ public class RepositorioFuncionarioVetor implements InterfaceFuncionario{
         for (Funcionario funcionario : this.vetor) {
             if (funcionario != null) {
                 String id = funcionario.getCpf();
-                if (funcionario.equals(id)) {
+                if (id.equals(cpf)) {
                     funcionarioEncontrado = funcionario;
                     break;
                 }
@@ -80,7 +80,7 @@ public class RepositorioFuncionarioVetor implements InterfaceFuncionario{
     public void imprimir() {
         for (Funcionario funcionario : this.vetor) {
             if(funcionario != null) {
-                System.out.println(funcionario.getNome());
+                System.out.println(funcionario.getNome()+" "+ funcionario.getCargo());
             }
         }
     }

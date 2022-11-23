@@ -1,5 +1,6 @@
 package entidade.dados;
 
+import entidade.funcionario.Funcionario;
 import entidade.produto.Produto;
 
 public class RepositorioProdutoVetor implements InterfaceProduto {
@@ -66,5 +67,14 @@ public class RepositorioProdutoVetor implements InterfaceProduto {
             }
         }
         return existe;
+    }
+
+    @Override
+    public void imprimir() {
+        for (Produto produto : this.vetor) {
+            if(produto != null) {
+                System.out.println(produto.getNome()+" estoque = "+produto.getQuantidade());
+            }
+        }
     }
 }

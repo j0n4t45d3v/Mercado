@@ -13,7 +13,7 @@ public class CadastroFuncionario {
     public void cadastrarFuncionario(Funcionario funcionario) throws CpfException {
         String cpfFuncionario = funcionario.getCpf();
         if(cpfFuncionario.length() != 11){
-            throw new CpfException("Cpf invalido!");
+            throw new CpfException("Cpf invalido!"+cpfFuncionario.length());
         } else if (funcionarios.existeFuncionario(cpfFuncionario)) {
             throw new CpfException("Funcionario já cadastrado!");
         }else{

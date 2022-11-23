@@ -9,4 +9,6 @@ public interface InterfaceProduto {
     void atualizar(Produto produto, String id);
     boolean existeProduto(String id);
     Produto buscarProduto(String nome);
+
+    void imprimir();
 }
