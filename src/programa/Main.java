@@ -28,10 +28,10 @@ public class  Main {
     static CadastroCliente cc = new CadastroCliente(rc);
     static CadastroFuncionario cf = new CadastroFuncionario(rf);
     public static void main(String[] args) throws IdProdutoException, CpfException {
-        Funcionario gerente = new Funcionario("Cleberson", "30/02/1980", "23476580123", "gerente");
-        cf.cadastrarFuncionario(gerente);
+
         OBbjetoComOsDados od = new OBbjetoComOsDados(rp);
         od.adicionarProdutos();
+        od.adicionarFuncionarios();
 
         int perg;
 
