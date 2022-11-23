@@ -11,13 +11,16 @@ public class CadastroProduto {
     }
 
     public void adicionarProduto(Produto produto) throws IdProdutoException {
-        if(produtos.existeProduto(produto.getId())) {
-            produtos.atualizar(produto, produto.getId());
-        }
+
         if(produto.getId().length() != 12){
             throw new IdProdutoException();
         }else{
-            produtos.add(produto);
+            if(produtos.existeProduto(produto.getId())) {
+                produtos.atualizar(produto, produto.getId());
+            }else{
+                produtos.add(produto);
+            }
+
         }
     }
 

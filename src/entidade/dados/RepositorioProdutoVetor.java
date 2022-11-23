@@ -50,7 +50,7 @@ public class RepositorioProdutoVetor implements InterfaceProduto {
     public boolean existeProduto(String id) {
         boolean produtoEncontrado = false;
         for (Produto produto : this.vetor) {
-            if (produto.getId().equals(id)) {
+            if (id.equals(produto.getId())) {
                 produtoEncontrado = true;
                 break;
             }

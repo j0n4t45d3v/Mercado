@@ -12,6 +12,11 @@ import entidade.produto.Produto;
 
 import java.util.Scanner;
 
+/*
+* contribuidores: Jonatas de Lima, Paulo César, Douglas Augusto, Marco Antonio, Magno nunes
+* tema: Mercado
+* */
+
 public class  Main {
     static RepositorioClienteLista rcl = new RepositorioClienteLista();
     static RepositorioClienteVetor rcv = new RepositorioClienteVetor(100);
@@ -90,7 +95,7 @@ public class  Main {
 
                 switch (perg){
                     case 1 ->{
-                        System.out.println("Nome do produto: ");
+                        /*System.out.println("Nome do produto: ");
                         String nome = input.next();
                         System.out.println("codigo de barra do produto: ");
                         String cod = input.next();
@@ -102,7 +107,9 @@ public class  Main {
                         CadastroProduto cp = new CadastroProduto(rpv);
                         Produto p = new Produto(nome, cod, preco, qtd);
 
-                        cp.adicionarProduto(p);
+                        cp.adicionarProduto(p);*/
+                        OBbjetoComOsDados od = new OBbjetoComOsDados(rpv);
+                        od.adicionarProdutos();
                     }
                     case 2 -> {
                         rpv.imprimir();
