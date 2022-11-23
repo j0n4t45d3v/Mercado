@@ -17,7 +17,8 @@ public class OBbjetoComOsDados {
     public OBbjetoComOsDados(InterfaceProduto rp){
         this.rp = rp;
     }
-    public OBbjetoComOsDados(InterfaceFuncionario rf){
+    public OBbjetoComOsDados(InterfaceProduto rp, InterfaceFuncionario rf){
+        this.rp = rp;
         this.rf = rf;
     }
 
