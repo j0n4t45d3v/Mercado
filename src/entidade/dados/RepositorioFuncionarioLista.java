@@ -11,9 +11,9 @@ public class RepositorioFuncionarioLista implements InterfaceFuncionario{
     }
 
     public RepositorioFuncionarioLista(Node<Funcionario> inicio, Node<Funcionario> fim, int tamanho) {
-        this.inicio = inicio;
-        this.fim = fim;
-        this.tamanho = tamanho;
+        this.inicio = null;
+        this.fim = null;
+        this.tamanho = 0;
     }
 
     public void add(Funcionario funcionario) {
@@ -30,7 +30,7 @@ public class RepositorioFuncionarioLista implements InterfaceFuncionario{
 
     @Override
     public void remover(Funcionario funcionario) {
-
+        Node<Funcionario> no = new Node<>(funcionario);
     }
 
     @Override
