@@ -68,8 +68,9 @@ public class RepositorioProdutoVetor implements InterfaceProduto {
     public Produto buscarProduto(String nome) {
         Produto existe = null;
         for (Produto produto : this.vetor) {
-            if (produto.getId().equals(nome)){
+            if (produto.getNome().equals(nome)){
                 existe = produto;
+                break;
             }
         }
         return existe;

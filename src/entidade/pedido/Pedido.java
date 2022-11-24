@@ -3,41 +3,36 @@ package entidade.pedido;
 import entidade.produto.Produto;
 
 public class Pedido {
-    private Item[] pedidos;
-    private int indice;
+    private Produto produto;
+    private int quantidade;
+    private double preco;
 
-    public Pedido() {
-        this.pedidos = new Item[10];
-        this.indice = 0;
+    public Pedido(Produto produto, int quantidade) {
+        this.produto = produto;
+        this.produto.setQuantidade(quantidade);
+        this.preco = produto.getPreco() * quantidade;
     }
 
-    public void adicionarProdutoNoCarrinho(Produto produto, int qtd){
-        Item item = new Item(produto, qtd);
-
-        if(indice == pedidos.length){
-            Item[] auxiliar = new Item[pedidos.length * 2];
-            for(int i = 0; i < pedidos.length; i++){
-                auxiliar[i] = pedidos[i];
-            }
-            pedidos = auxiliar;
-        }
-        pedidos[indice] = item;
-        indice++;
+    public double getPreco() {
+        return preco;
     }
 
-    public Item[] getPedidos() {
-        return pedidos;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
-    public void setPedidos(Item[] pedidos) {
-        this.pedidos = pedidos;
+    public Produto getProduto() {
+        return produto;
+    }
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
-    public int getIndice() {
-        return indice;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setIndice(int indice) {
-        this.indice = indice;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 }
