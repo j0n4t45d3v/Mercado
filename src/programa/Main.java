@@ -24,6 +24,8 @@ public class  Main {
     static RepositorioProdutoVetor rp = new RepositorioProdutoVetor(100);
 //    static RepositorioFuncionarioLista rf = new RepositorioFuncionarioLista();
     static RepositorioFuncionarioVetor rf = new RepositorioFuncionarioVetor(100);
+//    static RepositorioPedidoLista rpe = new RepositorioPedidoVetor();
+    static RepositorioPedidoVetor rpe = new RepositorioPedidoVetor(10);
     static Scanner input = new Scanner(System.in);
     static CadastroCliente cc = new CadastroCliente(rc);
     static CadastroFuncionario cf = new CadastroFuncionario(rf);
@@ -106,7 +108,7 @@ public class  Main {
                         System.out.println("Cargo do novo funcionario: ");
                         String formaPagamento = input.next();
 
-                        Cliente c = new Cliente(nome, dataNascimento, cpfCliente, formaPagamento);
+                        Cliente c = new Cliente(nome, dataNascimento, cpfCliente, formaPagamento, rpe);
                         cc.cadastrar(c);
                     }
                     case 3 -> rc.imprimir();
@@ -187,9 +189,8 @@ public class  Main {
                     System.out.println("Digite o produto que deseja adicionar na lista :");
                     String produto = input.next();
 
-                    RepositorioProdutoVetor rcp = new RepositorioProdutoVetor(100);
-                    //RepositorioProdutoLista rcp = new RepositorioProdutoLista();
-
+//                    AdicionarPedido adp = new AdicionarPedido(c.getPedido(), repositorio produto); para adicionar o pedi pro cliente.
+//                    Obs.: c.getPedido é para pegar o repositorio pedido do cliente;
                 }
             }
 
