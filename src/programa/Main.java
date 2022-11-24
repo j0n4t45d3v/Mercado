@@ -29,7 +29,7 @@ public class  Main {
     static CadastroFuncionario cf = new CadastroFuncionario(rf);
     public static void main(String[] args) throws IdProdutoException, CpfException {
 
-        OBbjetoComOsDados od = new OBbjetoComOsDados(rp);
+        OBbjetoComOsDados od = new OBbjetoComOsDados(rp,rf);
         od.adicionarProdutos();
         od.adicionarFuncionarios();
 
