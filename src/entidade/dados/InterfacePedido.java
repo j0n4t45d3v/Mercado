@@ -1,6 +1,7 @@
 package entidade.dados;
 
 import entidade.pedido.Pedido;
+import entidade.produto.Produto;
 
 public interface InterfacePedido {
 
@@ -9,5 +10,5 @@ public interface InterfacePedido {
     void imprimir();
     void atualizar(Pedido produto, String id);
     void valorTotalDaCompra();
-
+    Pedido buscarProduto(Produto produto);
 }

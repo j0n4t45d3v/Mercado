@@ -1,7 +1,8 @@
 package entidade.dados;
 
-import entidade.cliente.Cliente;
+import entidade.funcionario.Funcionario;
 import entidade.pedido.Pedido;
+import entidade.produto.Produto;
 
 public class RepositorioPedidoVetor implements InterfacePedido{
     private Pedido[] vetor;
@@ -67,4 +68,21 @@ public class RepositorioPedidoVetor implements InterfacePedido{
         }
         System.out.println("Valor Total das Compras é: "+ precoTotal);
     }
+
+    @Override
+    public Pedido buscarProduto(Produto produto) {
+        Pedido pedidoAtual = null;
+        for (Pedido pedido : this.vetor) {
+            if (pedido != null) {
+                String id = pedido.getProduto().getNome();
+                if (id.equals(produto.getNome())) {
+                    pedidoAtual = pedido;
+                    break;
+                }
+            }
+        }
+        return pedidoAtual;
+    }
+
+
 }

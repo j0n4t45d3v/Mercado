@@ -1,6 +1,7 @@
 package entidade.dados;
 
 import entidade.pedido.Pedido;
+import entidade.produto.Produto;
 
 public class RepositorioPedidoLista implements InterfacePedido{
     private Node<Pedido> inicio;
@@ -48,4 +49,19 @@ public class RepositorioPedidoLista implements InterfacePedido{
     public void valorTotalDaCompra() {
 
     }
+
+    @Override
+    public Pedido buscarProduto(Produto produto) {
+        Node<Pedido> noBusca = this.inicio;
+        String pedidoNoAtual = noBusca.getValue().getProduto().getNome();
+        Pedido pedido = noBusca.getValue();
+
+        while(noBusca != null && !pedidoNoAtual.equals(produto.getNome())){
+            noBusca = noBusca.getProx();
+        }
+
+        return pedido;
+    }
+
+
 }

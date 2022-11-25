@@ -155,7 +155,7 @@ public class  Main {
         Cliente c  = cc.buscarCliente(cpf);
 
         do {
-            System.out.println("Sair-0\nExcluir Cadastro-1\nAtualizar Cadastro-2\nAdicionar Produto-3 \nRemover Produto-4");
+            System.out.println("Sair-0\nExcluir Cadastro-1\nAtualizar Cadastro-2\nAdicionar Produto-3 \nRemover Produto-4\nCarrinho de Compra");
             perg = input.nextInt();
 
             switch (perg){
@@ -199,7 +199,15 @@ public class  Main {
                     Pedido pedidoSolicitado = new Pedido(produtoEncontrado,quantidade);
                     AdicionarPedido add = new AdicionarPedido(c.getPedido(),rp);
                     add.adicionarItem(pedidoSolicitado);
-                }
+                }case 4 ->{
+                    System.out.println("Digite o nome do Produto que deseja remover :");
+                    String nomeProcurar = input.nextLine().trim();
+                    Produto produto_a_procurar = rp.buscarProduto(nomeProcurar);
+
+
+                }case 5 -> c.getPedido().imprimir();
+
+
             }
 
         }while (perg !=0);
