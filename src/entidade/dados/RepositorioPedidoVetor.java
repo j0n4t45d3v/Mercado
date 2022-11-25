@@ -45,12 +45,23 @@ public class RepositorioPedidoVetor implements InterfacePedido{
     }
 
     @Override
-    public void atualizar(Pedido produto, String id) {
+    public void atualizar(Pedido produto, String nome) {
+        for (int i = 0 ; i <this.vetor.length ; i++){
+            if (this.vetor[i] != null){
+                String nome1 = this.vetor[i].getProduto().getNome();
 
+                if (nome.equals(nome1) ){
+                    this.vetor[i] = produto;
+                }
+            }
+        }
     }
 
     @Override
     public void valorTotalDaCompra() {
-
+        double precoTotal = 0;
+        for (Pedido i : this.vetor) {
+            precoTotal += i.getPreco();
+        }
     }
 }
