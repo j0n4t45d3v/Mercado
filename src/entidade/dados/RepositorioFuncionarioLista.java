@@ -1,5 +1,6 @@
 package entidade.dados;
 
+import entidade.cliente.Cliente;
 import entidade.funcionario.Funcionario;
 
 public class RepositorioFuncionarioLista implements InterfaceFuncionario{
@@ -7,13 +8,16 @@ public class RepositorioFuncionarioLista implements InterfaceFuncionario{
     private Node<Funcionario> fim;
     private int tamanho;
 
-    public RepositorioFuncionarioLista() {
-    }
 
-    public RepositorioFuncionarioLista(Node<Funcionario> inicio, Node<Funcionario> fim, int tamanho) {
+
+    public RepositorioFuncionarioLista() {
         this.inicio = null;
         this.fim = null;
         this.tamanho = 0;
+    }
+
+    public int getTamanho() {
+        return tamanho;
     }
 
     public void add(Funcionario funcionario) {
@@ -55,21 +59,44 @@ public class RepositorioFuncionarioLista implements InterfaceFuncionario{
 
     @Override
     public void atualizar(Funcionario funcionario, String cpf) {
-
+        Node<Funcionario> noAtualizar = this.inicio;
+        while (noAtualizar!=null && noAtualizar.getValue()!= funcionario){
+        noAtualizar = noAtualizar.getProx();
+        }
     }
 
     @Override
     public boolean existeFuncionario(String cpf) {
-        return false;
+        Node<Funcionario> p = this.inicio;
+        while (p != null && !p.getValue().getCpf().equals(cpf) ){
+            p = p.getProx();
+        }
+        return p != null;
     }
 
     @Override
     public Funcionario buscarFuncionario(String cpf) {
-        return null;
+        Node<Funcionario> noBusca = this.inicio;
+        String cpfNoAtual = noBusca.getValue().getCpf();
+        Funcionario funcionario = noBusca.getValue();
+
+        while(noBusca != null && !cpfNoAtual.equals(cpf)){
+            noBusca = noBusca.getProx();
+        }
+
+        return funcionario;
     }
 
     @Override
     public void imprimir() {
-
+        Node<Funcionario> noAtual = this.inicio;
+        if(this.tamanho>0){
+            while(noAtual != null){
+                System.out.println(noAtual.getValue().getNome());
+                noAtual = noAtual.getProx();
+            }
+        }else{
+            System.out.println("Lista vazia!");
+        }
     }
 }
