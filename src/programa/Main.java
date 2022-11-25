@@ -202,12 +202,10 @@ public class  Main {
                 }case 4 ->{
                     System.out.println("Digite o nome do Produto que deseja remover :");
                     String nomeProcurar = input.nextLine().trim();
-                    Produto produto_a_procurar = rp.buscarProduto(nomeProcurar);
-
-
+                    Produto produtoAProcurar = rp.buscarProduto(nomeProcurar);
+                    Pedido pedidoBuscado = rpe.buscarProduto(produtoAProcurar);
+                    c.getPedido().remover(pedidoBuscado);
                 }case 5 -> c.getPedido().imprimir();
-
-
             }
 
         }while (perg !=0);

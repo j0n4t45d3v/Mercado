@@ -1,5 +1,7 @@
 package entidade.dados;
 
+import entidade.funcionario.Funcionario;
+import entidade.pedido.Pedido;
 import entidade.produto.Produto;
 
 public class RepositorioProdutoLista implements InterfaceProduto {
@@ -50,18 +52,33 @@ public class RepositorioProdutoLista implements InterfaceProduto {
 
     @Override
     public void atualizar(Produto produto, String id) {
-
+        Node<Produto> noAtualizar = this.inicio;
+        while (noAtualizar!=null && noAtualizar.getValue()!= produto){
+            noAtualizar = noAtualizar.getProx();
+        }
     }
 
 
     @Override
-    public boolean existeProduto(String id) {
-        return false;
+    public boolean existeProduto(String nome) {
+        Node<Produto> p = this.inicio;
+        while (p != null && !p.getValue().getNome().equals(nome) ){
+            p = p.getProx();
+        }
+        return p != null;
     }
 
     @Override
     public Produto buscarProduto(String nome) {
-        return null;
+        Node<Produto> noBusca = this.inicio;
+        String produtoNoAtual = noBusca.getValue().getNome();
+        Produto produto = noBusca.getValue();
+
+        while(noBusca != null && !produtoNoAtual.equals(nome)){
+            noBusca = noBusca.getProx();
+        }
+
+        return produto;
     }
 
     @Override
