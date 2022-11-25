@@ -1,7 +1,5 @@
 package entidade.dados;
 
-import entidade.funcionario.Funcionario;
-import entidade.pedido.Pedido;
 import entidade.produto.Produto;
 
 public class RepositorioProdutoLista implements InterfaceProduto {
@@ -37,10 +35,10 @@ public class RepositorioProdutoLista implements InterfaceProduto {
             noAtual = noAtual.getProx();
         }
 
-        if(noAtual.equals(this.inicio)){
+        if(noAtual!= null && noAtual.equals(this.inicio)){
             this.inicio = noAtual.getProx();
             this.inicio.setAnt(null);
-        } else if(noAtual.equals(this.fim)){
+        } else if(noAtual!= null && noAtual.equals(this.fim)){
             this.fim = noAtual.getAnt();
             this.fim.setProx(null);
         } else{
