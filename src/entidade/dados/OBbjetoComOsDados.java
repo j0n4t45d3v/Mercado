@@ -1,5 +1,7 @@
 package entidade.dados;
 
+import entidade.cliente.CadastroCliente;
+import entidade.cliente.Cliente;
 import entidade.dados.RepositorioFuncionarioVetor;
 import entidade.dados.RepositorioProdutoVetor;
 import entidade.exceptions.CpfException;
@@ -13,14 +15,14 @@ import entidade.produto.Produto;
 public class OBbjetoComOsDados {
     private InterfaceProduto rp;
     private InterfaceFuncionario rf;
+    private InterfaceCliente rc;
+    private InterfacePedido ip;
 
-
-    public OBbjetoComOsDados(InterfaceProduto rp){
-        this.rp = rp;
-    }
-    public OBbjetoComOsDados(InterfaceProduto rp, InterfaceFuncionario rf){
+    public OBbjetoComOsDados(InterfaceProduto rp, InterfaceFuncionario rf, InterfaceCliente rc, InterfacePedido ip){
         this.rp = rp;
         this.rf = rf;
+        this.rc = rc;
+        this.ip = ip;
     }
 
     public void adicionarProdutos() throws IdProdutoException {
@@ -55,5 +57,17 @@ public class OBbjetoComOsDados {
         cf.cadastrarFuncionario(pedro);
         cf.cadastrarFuncionario(carlos);
         cf.cadastrarFuncionario(fatima);
+    }
+
+    public void adicionarClientes() throws CpfException, DataException {
+        CadastroCliente cc = new CadastroCliente(rc);
+        Cliente cliente = new Cliente("Celio", "20/05/2003", "24156098730", "dinheiro", ip);
+        Cliente cliente1 = new Cliente("Ronaldo", "16/12/1987", "23126098730", "debito", ip);
+        Cliente cliente2 = new Cliente("Richarlison", "10/09/2003", "30156198730", "credito", ip);
+        Cliente cliente3 = new Cliente("Rosa", "02/11/1899", "00351128730", "dinheiro", ip);
+        cc.cadastrar(cliente);
+        cc.cadastrar(cliente1);
+        cc.cadastrar(cliente2);
+        cc.cadastrar(cliente3);
     }
 }
