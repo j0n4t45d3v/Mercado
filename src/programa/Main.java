@@ -6,8 +6,11 @@ import entidade.dados.*;
 import entidade.exceptions.CpfException;
 import entidade.exceptions.DataException;
 import entidade.exceptions.IdProdutoException;
+import entidade.exceptions.PedidoException;
 import entidade.funcionario.CadastroFuncionario;
 import entidade.funcionario.Funcionario;
+import entidade.pedido.AdicionarPedido;
+import entidade.pedido.Pedido;
 import entidade.produto.CadastroProduto;
 import entidade.produto.Produto;
 
@@ -30,7 +33,7 @@ public class  Main {
     static Scanner input = new Scanner(System.in);
     static CadastroCliente cc = new CadastroCliente(rc);
     static CadastroFuncionario cf = new CadastroFuncionario(rf);
-    public static void main(String[] args) throws IdProdutoException, CpfException, DataException {
+    public static void main(String[] args) throws IdProdutoException, CpfException, DataException, PedidoException {
 
         OBbjetoComOsDados od = new OBbjetoComOsDados(rp,rf);
         od.adicionarProdutos();
@@ -146,9 +149,10 @@ public class  Main {
         }while(perg!=0);
 
     }
-    public static void cliente(String cpf){
+    public static void cliente(String cpf) throws PedidoException {
 
         int perg;
+        Cliente c  = cc.buscarCliente(cpf);
 
         do {
             System.out.println("Sair-0\nExcluir Cadastro-1\nAtualizar Cadastro-2\nAdicionar Produto-3 \nRemover Produto-4");
@@ -156,14 +160,11 @@ public class  Main {
 
             switch (perg){
                 case 1 ->{
-                    System.out.println("Digite o cpf do Cliente que deseja remover :");
-                    String cpfBuscado = input.next();
-                    Cliente c = cc.buscarCliente(cpfBuscado);
                     rc.remover(c);
+                    System.out.println("Usuário Removido");
                 } case 2 ->{
                     System.out.println("Digite o cpf do cliente que deseja atualizar :");
                     String cpfAtualizar = input.next();
-                    Cliente c = cc.buscarCliente(cpfAtualizar);
                     System.out.println("O que deseja atualizar : \nNome; \nData de nascimento; \nForma de pagamento;");
                     String atualizar = input.nextLine().trim();
                     switch (atualizar) {
@@ -191,8 +192,13 @@ public class  Main {
                     System.out.println("Digite o produto que deseja adicionar na lista :");
                     String produto = input.next();
 
-//                    AdicionarPedido adp = new AdicionarPedido(c.getPedido(), repositorio produto); para adicionar o pedi pro cliente.
-//                    Obs.: c.getPedido é para pegar o repositorio pedido do cliente;
+                    System.out.println("Digite a quantidade que deseja : ");
+                    int quantidade = input.nextInt();
+
+                    Produto produtoEncontrado = rp.buscarProduto(produto);
+                    Pedido pedidoSolicitado = new Pedido(produtoEncontrado,quantidade);
+                    AdicionarPedido add = new AdicionarPedido(c.getPedido(),rp);
+                    add.adicionarItem(pedidoSolicitado);
                 }
             }
 
