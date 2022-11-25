@@ -4,6 +4,7 @@ import entidade.cliente.CadastroCliente;
 import entidade.cliente.Cliente;
 import entidade.dados.*;
 import entidade.exceptions.CpfException;
+import entidade.exceptions.DataException;
 import entidade.exceptions.IdProdutoException;
 import entidade.funcionario.CadastroFuncionario;
 import entidade.funcionario.Funcionario;
@@ -29,7 +30,7 @@ public class  Main {
     static Scanner input = new Scanner(System.in);
     static CadastroCliente cc = new CadastroCliente(rc);
     static CadastroFuncionario cf = new CadastroFuncionario(rf);
-    public static void main(String[] args) throws IdProdutoException, CpfException {
+    public static void main(String[] args) throws IdProdutoException, CpfException, DataException {
 
         OBbjetoComOsDados od = new OBbjetoComOsDados(rp,rf);
         od.adicionarProdutos();
@@ -70,7 +71,7 @@ public class  Main {
     //------------------------------------------------------------------------------------------------------------------------------------
     //Metodos
 
-    public static void funcionario(String cpf) throws CpfException, IdProdutoException {
+    public static void funcionario(String cpf) throws CpfException, IdProdutoException, DataException {
         //fazer validação para ver se o funcionario é gerente ou repositor
 
         Funcionario funcionario = rf.buscarFuncionario(cpf);
@@ -148,6 +149,7 @@ public class  Main {
     public static void cliente(String cpf){
 
         int perg;
+
         do {
             System.out.println("Sair-0\nExcluir Cadastro-1\nAtualizar Cadastro-2\nAdicionar Produto-3 \nRemover Produto-4");
             perg = input.nextInt();

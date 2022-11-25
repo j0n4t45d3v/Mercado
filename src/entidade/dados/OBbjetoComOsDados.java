@@ -3,6 +3,7 @@ package entidade.dados;
 import entidade.dados.RepositorioFuncionarioVetor;
 import entidade.dados.RepositorioProdutoVetor;
 import entidade.exceptions.CpfException;
+import entidade.exceptions.DataException;
 import entidade.exceptions.IdProdutoException;
 import entidade.funcionario.CadastroFuncionario;
 import entidade.funcionario.Funcionario;
@@ -40,7 +41,7 @@ public class OBbjetoComOsDados {
         cp.adicionarProduto(p6);
     }
 
-    public void adicionarFuncionarios() throws CpfException {
+    public void adicionarFuncionarios() throws CpfException, DataException {
         CadastroFuncionario cf = new CadastroFuncionario(rf);
         Funcionario gerente = new Funcionario("Cleberson", "30/02/1980", "23476580123", "gerente");
         Funcionario joao = new Funcionario("João", "31/12/2000", "21476580123", "repositor");
