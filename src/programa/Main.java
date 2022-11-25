@@ -35,9 +35,10 @@ public class  Main {
     static CadastroFuncionario cf = new CadastroFuncionario(rf);
     public static void main(String[] args) throws IdProdutoException, CpfException, DataException, PedidoException {
 
-        OBbjetoComOsDados od = new OBbjetoComOsDados(rp, rf, rc);
+        OBbjetoComOsDados od = new OBbjetoComOsDados(rp, rf, rc, rpe);
         od.adicionarProdutos();
         od.adicionarFuncionarios();
+        od.adicionarClientes();
 
         int perg;
 
