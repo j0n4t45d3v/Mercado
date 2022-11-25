@@ -61,7 +61,10 @@ public class RepositorioPedidoVetor implements InterfacePedido{
     public void valorTotalDaCompra() {
         double precoTotal = 0;
         for (Pedido i : this.vetor) {
-            precoTotal += i.getPreco();
+            if(i != null) {
+                precoTotal += i.getPreco();
+            }
         }
+        System.out.println("Valor Total das Compras é: "+ precoTotal);
     }
 }
